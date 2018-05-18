@@ -13,7 +13,7 @@ int curl4s3_init()
     /* TODO complete the function */
 }
 
-void cdmi_curl_cleanup() 
+void curl4s3_cleanup() 
 {
     curl_global_cleanup();
 }
