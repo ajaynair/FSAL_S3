@@ -1,12 +1,7 @@
-#ifndef CURL4S3
-#define CURL4S3
+#ifndef _CURL4S3_
+#define _CURL4S3_
 
 #include <curl/curl.h>
-
-typedef struct curl4s3 {
-    char *auth;
-    char *url;
-} curl4s3_t;
 
 /* 
  * Amazon S3 supports the following operations 
@@ -35,6 +30,20 @@ typedef struct curl4s3 {
  * Upload Part - Copy
  */
 
+typedef struct curl4s3 {
+    char *auth;
+    char *url;
+} curl4s3_t;
+
+typedef struct _curl4s3_req_t {
+    struct curl_slist *headers;
+    CURL *curl;       /* Handle to curl library's easy interface */
+    char *signature;  /* Holds signature calculated from HMAC SHA1 */
+    char *base_url;   /* S3 base URL, with s3 and account, but without bucket or object */
+    char *date;
+    char *metadata_pairs;  /* List of metadata. Needed for generating string_to_sign */
+} curl4s3_req_t;
+
 typedef enum curl4s3_ops {
     USER_AUTH                = 1,
     OBJ_POST_DATA            = 2,
@@ -45,9 +54,23 @@ typedef enum curl4s3_ops {
     OBJ_DELETE               = 7,
 } curl4s3_ops_t;
 
-typedef struct curl4s3_req {
-    CURL *curl;
-} curl4s3_req_t;
+typedef enum _cb_state {
+    CB_PROCESS_DATA,
+    CB_INVALID
+} cb_state_t;
+
+typedef struct _curl4s3_read_cb_arg_t {
+    void              *args;
+    cb_state_t         state;
+    double             content_len;
+} curl4s3_read_cb_arg_t;
+
+typedef struct _curl4s3_write_cb_arg_t {
+    void               *args;
+    cb_state_t          state;
+    double              content_len;
+    curl4s3_req_t      *request;
+} curl4s3_write_cb_arg_t;
 
 int curl4s3_init();
 void curl4s3_cleanup();
@@ -64,4 +87,4 @@ int curl4s3_ops_obj_post_metadata(curl4s3_t *curl4s3, const char *object_id, con
 
 int curl4s3_ops_obj_delete(curl4s3_t *curl4s3, const char *object_id);
 
-#endif // S3CURLLIB
+#endif /* _CURL4S3_ */
