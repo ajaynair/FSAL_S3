@@ -16,10 +16,11 @@ static const char myname[] = "S3";
     ATTR_CTIME    | ATTR_MTIME                     \
     )
 
+# define S3MAXOBJSIZE 5000000000000 
 /* TODO Check if the following values are correct for S3 */
 static struct fsal_staticfsinfo_t s3_info = {
-    .maxfilesize = UINT64_MAX,
-    .maxlink = _POSIX_LINK_MAX,
+    .maxfilesize = S3MAXOBJSIZE,
+    .maxlink = 0,
     .maxnamelen = 1024,
     .maxpathlen = 1024,
     .no_trunc = true,

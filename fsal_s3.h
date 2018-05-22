@@ -3,6 +3,7 @@
 
 #include "fsal.h"
 #include "fsal_convert.h"
+#include "curl4s3.h" 
 
 typedef struct s3_fsal_export {
     struct fsal_export export;

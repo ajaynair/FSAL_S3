@@ -1,4 +1,62 @@
+#include <libgen.h>
 #include "fsal_s3.h"
+
+static char *_s3_mydirname(const char* path)
+{
+  if(!path || '\0' == path[0]){
+    return NULL;
+  }
+
+  return dirname((char *) path);
+}
+
+static fsal_status_t _s3_check_object_access(const char *path, int mask)
+{
+    fsal_status_t st; 
+    char attr[BUF_SIZE][BUF_SIZE];
+
+}
+
+static fsal_status_t _s3_check_parent_object_access(const char* path, int mask)
+{
+  char *parent = NULL;
+  fsal_status_t st;
+
+  if(0 == strcmp(path, "/") || 0 == strcmp(path, ".")){
+    // path is mount point.
+    fsalstat(ERR_FSAL_NO_ERROR, 0);
+  }
+
+  if(X_OK == (mask & X_OK)){
+    for(parent = _s3_mydirname(path); ; parent = _s3_mydirname(parent)){
+      if(strcmp(parent, ".") == 0){
+        parent = "/";
+      }
+      /*
+      if(st == _s3_check_object_access(parent, X_OK)){
+        return st;
+      } 
+      */
+      if(strcmp(parent, "/") == 0 || strcmp(parent, ".") == 0){
+        break;
+      }
+    }
+  }
+
+  mask = (mask & ~X_OK);
+  if(0 != mask){
+    parent = _s3_mydirname(path);
+    if(parent == "."){
+      parent = "/";
+    }
+    /*
+    if(0 != _s3_check_object_access(parent, mask)){
+      return st;
+    }
+    */
+  }
+  return st;
+}
 
 /*
  * Function: s3_lookup
@@ -204,10 +262,22 @@ fsal_status_t s3_lookup_path(struct fsal_export *exp_hdl,
                 const char *path, struct fsal_obj_handle **ffile)
 {
     LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    
+    fsal_status_t st;
+  
+    st = _s3_check_parent_object_access(path, X_OK);
+    if (FSAL_IS_ERROR(st)) {
+        goto err;
+    }
+
+    st = _s3_check_object_access(path, X_OK);
+    if (FSAL_IS_ERROR(st)) {
+        goto err;
+    }
+ 
     return fsalstat(ERR_FSAL_NO_ERROR, 0);
 
-
+err:
+    return st;
 }
 
 fsal_status_t s3_create_handle(struct fsal_export *exp_hdl,
