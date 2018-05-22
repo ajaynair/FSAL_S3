@@ -3,7 +3,6 @@
 
 #include <curl/curl.h>
 
-#define BUF_SIZE 1024
 /* 
  * Amazon S3 supports the following operations 
  *
@@ -31,13 +30,16 @@
  * Upload Part - Copy
  */
 
+#define BUF_SIZE             1024
+#define EMPTY_STRING_HASH  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
 typedef struct _curl4s3_req_t {
     struct curl_slist *headers;
     CURL *curl;       /* Handle to curl library's easy interface */
     char *signature;  /* Holds signature calculated from HMAC SHA1 */
     char *base_url;   /* S3 base URL, with s3 and account, but without bucket or object */
     char *date;
-    char *metadata_pairs;  /* List of metadata. Needed for generating string_to_sign */
+    char *amz_metadata_pairs;  /* List of metadata. Needed for generating string_to_sign */
 } curl4s3_req_t;
 
 typedef enum curl4s3_ops {
@@ -69,17 +71,19 @@ typedef struct _curl4s3_write_cb_arg_t {
 } curl4s3_write_cb_arg_t;
 
 int curl4s3_init();
+int curl4s3_connect(curl4s3_t *curl4s3, const char *base_url, const char *auth_key,
+                    const char *secret_auth_key)
 void curl4s3_cleanup();
 
 int curl4s3_ops_obj_get(const char *object_id, char **object_data);
 
-int curl4s3_ops_obj_get_metadata(const char *object_id, const char metadata_key[BUF_SIZE][BUF_SIZE], char metadata_value[BUF_SIZE][BUF_SIZE]);
+int curl4s3_ops_obj_get_metadata(const char *object_id, const char amz_metadata_key[BUF_SIZE][BUF_SIZE], char amz_metadata_value[BUF_SIZE][BUF_SIZE]);
 
 int curl4s3_ops_obj_put(const char *object_id, char *buff);
 
 int curl4s3_ops_obj_post(const char *object_id, char *buff);
 
-int curl4s3_ops_obj_post_metadata(const char *object_id, const char metadata_key[BUF_SIZE][BUF_SIZE], const char metadata_value[BUF_SIZE][BUF_SIZE]);
+int curl4s3_ops_obj_post_metadata(const char *object_id, const char amz_metadata_key[BUF_SIZE][BUF_SIZE], const char amz_metadata_value[BUF_SIZE][BUF_SIZE]);
 
 int curl4s3_ops_obj_delete(const char *object_id);
 
