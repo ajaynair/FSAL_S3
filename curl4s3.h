@@ -30,6 +30,9 @@
  * Upload Part - Copy
  */
 
+#define CURL4S3_CONNECT_TIMEOUT    10
+#define CURL4S3_REQUEST_TIMEOUT    (60*45)
+#define CURL4S3_MAX_RETRIES        2
 #define BUF_SIZE             1024
 #define EMPTY_STRING_HASH  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
@@ -39,6 +42,7 @@ typedef struct _curl4s3_req_t {
     char *signature;  /* Holds signature calculated from HMAC SHA1 */
     char *base_url;   /* S3 base URL, with s3 and account, but without bucket or object */
     char *date;
+    char *time;
     char *amz_metadata_pairs;  /* List of metadata. Needed for generating string_to_sign */
 } curl4s3_req_t;
 
@@ -63,19 +67,22 @@ typedef struct _curl4s3_read_cb_arg_t {
     double             content_len;
 } curl4s3_read_cb_arg_t;
 
-typedef struct _curl4s3_write_cb_arg_t {
-    void               *args;
-    cb_state_t          state;
-    double              content_len;
-    curl4s3_req_t      *request;
-} curl4s3_write_cb_arg_t;
+typedef struct _curl4s3_get_cb_arg_t {
+    char              *object_data;
+    size_t             object_data_len;
+    char              *object_metadata;
+    size_t             object_metadata_len;
+    cb_state_t         state;
+    double             content_len;
+    curl4s3_req_t     *request;
+} curl4s3_get_cb_arg_t;
 
 int curl4s3_init();
 int curl4s3_connect(curl4s3_t *curl4s3, const char *base_url, const char *auth_key,
                     const char *secret_auth_key)
 void curl4s3_cleanup();
 
-int curl4s3_ops_obj_get(const char *object_id, char **object_data);
+int curl4s3_ops_obj_get(const char *object_id, char **object_metadata, char **object_data);
 
 int curl4s3_ops_obj_get_metadata(const char *object_id, const char amz_metadata_key[BUF_SIZE][BUF_SIZE], char amz_metadata_value[BUF_SIZE][BUF_SIZE]);
 
