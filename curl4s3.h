@@ -78,7 +78,7 @@ typedef struct _curl4s3_get_cb_arg_t {
 } curl4s3_get_cb_arg_t;
 
 int curl4s3_init();
-int curl4s3_connect(curl4s3_t *curl4s3, const char *base_url, const char *auth_key,
+int curl4s3_connect(const char *base_url, const char *auth_key,
                     const char *secret_auth_key)
 void curl4s3_cleanup();
 
