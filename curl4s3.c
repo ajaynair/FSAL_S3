@@ -1,10 +1,12 @@
+#include <time.h>
+#include <string.h>
 #include <errno.h>
 
 #include "curl4s3.h"
-typedef struct curl4s3 {
+typedef struct _curl4s3 {
     char *auth_key;
     char *secret_auth_key;
-    char *url;
+    char *base_url;
 } curl4s3_t;
 
 #define CURL4S3_SET_OPTION(curl, option, value)                 \
@@ -12,12 +14,19 @@ typedef struct curl4s3 {
         int curl_err;                                           \
         curl_err = curl_easy_setopt((curl), (option), (value)); \
         if (CURLE_OK != curl_err) {                             \
-            return (curl_err)                                   \
+	  return (curl_err);					\
         }                                                       \
     } while (0);
 
+#define SHA256_DIGEST_LENGTH 256
+#define PAYLOADLEN           4096
+
 static const char *region = "us-east-1";
 static const char *bucket_id = "curl4s3";
+static const char *base_url = "https://s3.amazonaws.com";
+static const char *auth_key = "xyz";
+static const char *secret_auth_key = "secret_key";
+static curl4s3_t curl4s3;
 
 int curl4s3_init()
 {
@@ -35,30 +44,29 @@ void curl4s3_cleanup()
     curl_global_cleanup();
 }
 
-int curl4s3_connect(curl4s3_t *curl4s3, const char *base_url, const char *auth_key,
-                    const char *secret_auth_key)
+int curl4s3_connect()
 {
-    if (curl4s3->auth_key) {
-        gsh_free(curl4s3->auth_key);
+    if (curl4s3.auth_key) {
+        gsh_free(curl4s3.auth_key);
     }
-    curl4s3->auth_key = strdup(auth_key);
+    curl4s3.auth_key = strdup(auth_key);
 
-    if (curl4s3->secret_auth_key) {
-        gsh_free(curl4s3->secret_auth_key);
+    if (curl4s3.secret_auth_key) {
+        gsh_free(curl4s3.secret_auth_key);
     }
-    curl4s3->secret_auth_key = strdup(secret_auth_key);
+    curl4s3.secret_auth_key = strdup(secret_auth_key);
 
-    if (curl4s3->base_url) {
-        gsh_free(curl4s3->base_url);
+    if (curl4s3.base_url) {
+        gsh_free(curl4s3.base_url);
     }
-    curl4s3->base_url = strdup(base_url);
+    curl4s3.base_url = strdup(base_url);
 
     return 0;
 }
 
-static int curl4s3_generate_req(curl4s3_t *curl4s3, curl4s3_req_t *request, const char *object_id)
+static int curl4s3_generate_req(curl4s3_req_t *request, const char *object_id)
 {
-    char header[BUZ_SIZE];
+    char header[BUF_SIZE];
     char *token = NULL;
 
     memset(request, sizeof(curl4s3_req_t), 0);
@@ -70,10 +78,10 @@ static int curl4s3_generate_req(curl4s3_t *curl4s3, curl4s3_req_t *request, cons
     request->headers = NULL;
     request->base_url = NULL;
 
-    CURL4S3_SET_OPTION(request->curl, CURLOPT_VERBOSE, /* Verbose */ 1, status);
-    CURL4S3_SET_OPTION(request->curl, CURLOPT_POSTFIELDS, NULL, status);
+    CURL4S3_SET_OPTION(request->curl, CURLOPT_VERBOSE, /* Verbose */ 1);
+    CURL4S3_SET_OPTION(request->curl, CURLOPT_POSTFIELDS, NULL);
 
-    token = strstr(curl4s3->base_url, "http://");
+    token = strstr(curl4s3.base_url, "http://");
     if (!token) {
         curl_easy_cleanup(request->curl);
         request->curl = NULL;
@@ -93,15 +101,15 @@ static int curl4s3_generate_url(curl4s3_req_t *request, char *base_url, curl4s3_
 
     switch (ops) {
 
-    case OBJ_PUT_OBJECT:
-    case OBJ_GET_OBJECT:
-    case OBJ_SET_OBJECT_METADATA:
-    case OBJ_GET_OBJECT_METADATA:
-    case OBJ_DELETE_OBJECT:
-        url_len += ( 1 /* '/' */ + strlen(object_id) + 1 /* '.' */ + strlen(bucket_id))
+    case OBJ_PUT_DATA:
+    case OBJ_GET_DATA:
+    case OBJ_POST_METADATA:
+    case OBJ_GET_METADATA:
+    case OBJ_DELETE:
+        url_len += ( 1 /* '/' */ + strlen(object_id) + 1 /* '.' */ + strlen(bucket_id));
         break;
 
-    case AUTHENTICATE_USER:
+    case USER_AUTH:
         break;
 
     default:
@@ -110,26 +118,26 @@ static int curl4s3_generate_url(curl4s3_req_t *request, char *base_url, curl4s3_
 
     url_len++; /* '\0' */
 
-    gsh_malloc(request->base_url, char, url_len);
+    request->base_url = gsh_malloc(url_len);
     if (NULL == request->base_url) {
         return EINVAL;
     }
     temp_url = request->base_url;
     switch (ops) {
 
-    case OBJ_PUT_OBJECT:
-    case OBJ_GET_OBJECT:
-    case OBJ_SET_OBJECT_METADATA:
-    case OBJ_GET_OBJECT_METADATA:
-    case OBJ_DELETE_OBJECT:
-        token = strtoken(base_url, "http://");
+    case OBJ_PUT_DATA:
+    case OBJ_GET_DATA:
+    case OBJ_POST_METADATA:
+    case OBJ_GET_METADATA:
+    case OBJ_DELETE:
+        token = strtok(base_url, "http://");
         nbytes = token - base_url;
         memcpy(temp_url, base_url, nbytes);
         temp_url += nbytes;
         sprintf(temp_url, "%s.%s/%s", bucket_id, token, object_id);
         break;
 
-    case AUTHENTICATE_USER:
+    case USER_AUTH:
         break;
 
     default:
@@ -139,14 +147,14 @@ static int curl4s3_generate_url(curl4s3_req_t *request, char *base_url, curl4s3_
     return 0;
 }
 
-static int curl4s3_generate_string_to_sign(curl4s3_t *request, char *url, curl4s3_ops_t ops,
+static int curl4s3_generate_string_to_sign(curl4s3_req_t *request, char *url, curl4s3_ops_t ops,
                                            const char *object_id, char *string_to_sign,
                                            char *amz_metadata_pairs, char *amz_metadata_headers,
                                            char *payload)
 {
     int status = 0;
-    char resource[BUF_SIZE], time[BUF_SIZE], canonical_request[BUF_SIZE], date[BUF_SIZE];
-    char base_url[BUF_SIZE], digest[SHA256_DIGEST_LEN];
+    char resource[BUF_SIZE], time_str[BUF_SIZE], canonical_request[BUF_SIZE], date[BUF_SIZE];
+    char base_url[BUF_SIZE], digest[SHA256_DIGEST_LENGTH];
     char *token = NULL;
     struct tm *_tm;
     time_t _time;
@@ -159,13 +167,13 @@ static int curl4s3_generate_string_to_sign(curl4s3_t *request, char *url, curl4s
     }
 
     /* Format time and time as required */
-    status = strftime(time, 2048,"%Y%m%dT%H%M%SZ", _tm);
+    status = strftime(time_str, 2048,"%Y%m%dT%H%M%SZ", _tm);
     if (!status) return status;
 
     status = strftime(date, 2048,"%Y%m%d", _tm);
     if (!status) return status;
 
-    request->time = strdup(time);
+    request->time = strdup(time_str);
     request->date = strdup(date);
 
     strcpy(base_url, url);
@@ -193,23 +201,24 @@ static int curl4s3_generate_string_to_sign(curl4s3_t *request, char *url, curl4s
         object_id, bucket_id, token, payload, request->time, payload);
         break;
 
-   case OBJ_DELETE_DATA:
+   case OBJ_DELETE:
         sprintf(canonical_request,
         "DELETE\n/%s\n\nhost:%s.%s\nx-amz-content-sha256:%s\nx-amz-date:%s\n\nhost;x-amz-content-sha256;x-amz-date\n%s",
         object_id, bucket_id, token, payload, request->time, payload);
 
-    case AUTHENTICATE_USER:
+    case USER_AUTH:
         break;
 
     default:
-        ASSERT(0);
+        ;
    }
 
     /* Need to look at this */
     status = sha256_encryption(canonical_request, digest);
 
-    sprintf(str_to_sign, "AWS4-HMAC-SHA256\n%s\n%s/%s/s3/aws4_request\n%s", request->time,
+    /* sprintf(str_to_sign, "AWS4-HMAC-SHA256\n%s\n%s/%s/s3/aws4_request\n%s", request->time,
         request->date, region, digest);
+    */
 
     return status;
 }
@@ -248,7 +257,7 @@ static int curl4s3_generate_signing_key(curl4s3_req_t *request, curl4s3_ops_t op
 }
 
 
-static int curl4s3_generate_version_signature(curl4s3_t *curl4s3, curl4s3_req_t *request, curl4s3_ops_t ops,
+static int curl4s3_generate_version_signature(curl4s3_req_t *request, curl4s3_ops_t ops,
                                               const char *object_id, char *amz_metadata_pairs,
                                               char *amz_metadata_headers, char *payload)
 {
@@ -256,13 +265,14 @@ static int curl4s3_generate_version_signature(curl4s3_t *curl4s3, curl4s3_req_t 
     char credential_header[BUF_SIZE], signed_header[BUF_SIZE];
     unsigned char digest[SHA256_DIGEST_LENGTH], signing_key[BUF_SIZE],
     temp[SHA256_DIGEST_LENGTH];
+    int status = 0;
 
-    status = curl4s3_generate_string_to_sign(request, curl4s3->base_url, ops, object_id, string_to_sign,
+    status = curl4s3_generate_string_to_sign(request, curl4s3.base_url, ops, object_id, string_to_sign,
                 amz_metadata_pairs, amz_metadata_headers, payload);
     if (status)
         return status;
 
-    status = curl4s3_genegrate_signing_key(request, ops, curl4s3->secret_auth_key, object_id, signing_key, amz_metadata_headers);
+    status = curl4s3_genegrate_signing_key(request, ops, curl4s3.secret_auth_key, object_id, signing_key, amz_metadata_headers);
     if (status)
         return status;
 
@@ -270,7 +280,7 @@ static int curl4s3_generate_version_signature(curl4s3_t *curl4s3, curl4s3_req_t 
        Authorization header */
 
     request->signature = NULL;
-    gsh_malloc(request->signature, char, SHA256_DIGEST_LENGTH);
+    request->signature = gsh_malloc(SHA256_DIGEST_LENGTH);
 
     /* Generate message digest using HAMC-SHA256 */
     status = hmac_sha256_encryption(signing_key, SHA256_DIGEST_LENGTH,
@@ -278,8 +288,7 @@ static int curl4s3_generate_version_signature(curl4s3_t *curl4s3, curl4s3_req_t 
     generate_hex_key(digest, temp);
     request->signature = strndup((char *)temp, SHA256_DIGEST_LENGTH * 2);
 
-    sprintf(credential_header, "%s/%s/%s/s3/aws4_request", curl4s3->auth_key, request->date_scope,
-        request->region);
+    sprintf(credential_header, "%s/%s/%s/s3/aws4_request", curl4s3.auth_key, request->date, region);
     sprintf(signed_header, "host;x-amz-content-sha256;x-amz-date");
 
     if (amz_metadata_headers != NULL) {
@@ -302,11 +311,11 @@ static int curl4s3_send_request(curl4s3_req_t *request, const char *base_url)
     int max_retries = CURL4S3_MAX_RETRIES;
     long http_status = 0;
 
-    CURL_EASY_SETOPT(request->curl, CURLOPT_URL, base_url, status);
-    CURL_EASY_SETOPT(request->curl, CURLOPT_USERAGENT, "curl/7.32.0", status);
-    CURL_EASY_SETOPT(request->curl, CURLOPT_CONNECTTIMEOUT, CURL4S3_CONNECT_TIMEOUT, status);
-    CURL_EASY_SETOPT(request->curl, CURLOPT_TIMEOUT, CURL4S3_REQUEST_TIMEOUT, status);
-    CURL_EASY_SETOPT(request->curl, CURLOPT_HTTPHEADER, request->headers, status);
+    CURL_EASY_SETOPT(request->curl, CURLOPT_URL, base_url);
+    CURL_EASY_SETOPT(request->curl, CURLOPT_USERAGENT, "curl/7.32.0");
+    CURL_EASY_SETOPT(request->curl, CURLOPT_CONNECTTIMEOUT, CURL4S3_CONNECT_TIMEOUT);
+    CURL_EASY_SETOPT(request->curl, CURLOPT_TIMEOUT, CURL4S3_REQUEST_TIMEOUT);
+    CURL_EASY_SETOPT(request->curl, CURLOPT_HTTPHEADER, request->headers);
 
     do {
         curl_err = curl_easy_perform(request->curl);
@@ -314,13 +323,14 @@ static int curl4s3_send_request(curl4s3_req_t *request, const char *base_url)
             return curl_err;
         }
         curl_easy_getinfo(request->curl, CURLINFO_RESPONSE_CODE, &http_status);
-    } while ((http_status == HTTP_STATUS_TIMEOUT) && (max_retries--));
+    } while ((http_status == 408 /* TIMEOUT */) && (max_retries--));
 
     return 0;
 }
 
 static size_t curl4s3_get_cb(char *buffer, size_t size, size_t nitems, void *args)
 {
+  printf("%s\n", buffer);
     return 0;
 }
 
@@ -334,11 +344,11 @@ static void curl4s3_cleanup_req(curl4s3_req_t *req)
 
 }
 
-int curl4s3_ops_obj_get(const char *object_id, char **object_metadata, char **object_data)
+int curl4s3_ops_obj_get(const char *object_id, char **object_data)
 {
     int status;
     curl4s3_req_t request;
-    char curl_header[BUZ_SIZE], headers_list[MAX_HEADERS_LIST], hash_payload[PAYLOADLEN];
+    char curl_header[BUF_SIZE], headers_list[BUF_SIZE], hash_payload[PAYLOADLEN];
     curl4s3_get_cb_arg_t cb_args;
 
     /* Initialize the callback arguments */
@@ -352,20 +362,18 @@ int curl4s3_ops_obj_get(const char *object_id, char **object_metadata, char **ob
 
     strcpy(hash_payload, EMPTY_STRING_HASH);
 
-    status = curl4s3_generate_url(&request, curl4s3->base_url, OBJ_GET_OBJECT, object_id);
+    status = curl4s3_generate_url(&request, curl4s3.base_url, OBJ_GET_DATA, object_id);
     if (status) return status;
 
-    status = curl4s3_generate_version_signature(curl4s3, &request, OBJ_GET_OBJECT, object_id, headers_list, NULL, hash_payload);
+    status = curl4s3_generate_version_signature(&request, OBJ_GET_DATA, object_id, headers_list, NULL, hash_payload);
     if (status) return status;
 
     sprintf(curl_header, "x-amz-content-sha256: %s", hash_payload);
     request.headers = curl_slist_append(request.headers, curl_header);
 
-    CURL4S3_SET_OPTION(request.curl, CURLOPT_WRITEFUNCTION, curl4s3_get_cb, status);
-    CURL4S3_SET_OPTION(request.curl, CURLOPT_WRITEDATA, &cb_args, status);
-    CURL4S3_SET_OPTION(request.curl, CURLOPT_HEADERFUNCTION, curl4s3_get_metadata, status);
-    CURL4S3_SET_OPTION(request.curl, CURLOPT_HEADERDATA, &cb_args, status);
-    CURL4S3_SET_OPTION(request.curl, CURLOPT_HTTPGET, 1L, status);
+    CURL4S3_SET_OPTION(request.curl, CURLOPT_WRITEFUNCTION, curl4s3_get_cb);
+    CURL4S3_SET_OPTION(request.curl, CURLOPT_WRITEDATA, &cb_args);
+    CURL4S3_SET_OPTION(request.curl, CURLOPT_HTTPGET, 1L);
 
     status = curl4s3_send_request(&request, request.base_url);
     if (status)

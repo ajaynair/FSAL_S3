@@ -46,7 +46,7 @@ static fsal_status_t _s3_check_parent_object_access(const char* path, int mask)
   mask = (mask & ~X_OK);
   if(0 != mask){
     parent = _s3_mydirname(path);
-    if(parent == "."){
+    if(strcmp(parent, ".") == 0){
       parent = "/";
     }
     /*

@@ -2,6 +2,7 @@
 #define _CURL4S3_
 
 #include <curl/curl.h>
+#include "abstract_mem.h"
 
 /* 
  * Amazon S3 supports the following operations 
@@ -33,7 +34,7 @@
 #define CURL4S3_CONNECT_TIMEOUT    10
 #define CURL4S3_REQUEST_TIMEOUT    (60*45)
 #define CURL4S3_MAX_RETRIES        2
-#define BUF_SIZE             1024
+#define BUF_SIZE                   1024
 #define EMPTY_STRING_HASH  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 typedef struct _curl4s3_req_t {
@@ -68,9 +69,9 @@ typedef struct _curl4s3_read_cb_arg_t {
 } curl4s3_read_cb_arg_t;
 
 typedef struct _curl4s3_get_cb_arg_t {
-    char              *object_data;
+    char              **object_data;
     size_t             object_data_len;
-    char              *object_metadata;
+    char              **object_metadata;
     size_t             object_metadata_len;
     cb_state_t         state;
     double             content_len;
@@ -78,8 +79,7 @@ typedef struct _curl4s3_get_cb_arg_t {
 } curl4s3_get_cb_arg_t;
 
 int curl4s3_init();
-int curl4s3_connect(const char *base_url, const char *auth_key,
-                    const char *secret_auth_key)
+int curl4s3_connect();
 void curl4s3_cleanup();
 
 int curl4s3_ops_obj_get(const char *object_id, char **object_metadata, char **object_data);
