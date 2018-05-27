@@ -1,18 +1,17 @@
 #ifndef __S_CONNECTOR__
 #define __S_CONNECTOR__
 
-#include "fsal_types.h"
-
 typedef struct {
   const char *name;
   const char *value;
 } dict;
 
 typedef struct {
-  FILE *fp;
+  FILE   *fp;
   size_t file_size;
-  dict *metadata; 
+  dict   *metadata; 
   size_t metadata_count; 
+  int    status;
 } data_pointer; 
 
 void get_object(char *bucketName, char *objectName, data_pointer *data);

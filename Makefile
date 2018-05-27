@@ -1,6 +1,6 @@
 SUBDIRS = s3_connector cli
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)libntirpc/ntirpc/
+IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/
 TARGET    = libfsals3.so
 DEST      = dest/
 OBJS      = $(subst .c,.o,$(SOURCES))
