@@ -1,0 +1,2 @@
+Copy all affecting file to new location
+Delete all affecting files and folders

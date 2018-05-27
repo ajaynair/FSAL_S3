@@ -2,3 +2,6 @@
 *.so
 *.out
 tags
+TAGS
+cscope.out
+*.swp

@@ -1,0 +1,1522 @@
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc3440024f0
+* Connection 4 seems to be dead!
+* Closing connection 4
+* About to connect() to nascc1.s3-ap-south-1.amazonaws.com port 443 (#5)
+*   Trying 52.219.64.2...
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* Server certificate:
+*       subject: CN=*.s3.ap-south-1.amazonaws.com,O=Amazon.com Inc.,L=Seattle,ST=Washington,C=US
+*       start date: Jan 30 00:00:00 2018 GMT
+*       expire date: Feb 04 12:00:00 2019 GMT
+*       common name: *.s3.ap-south-1.amazonaws.com
+*       issuer: CN=DigiCert Baltimore CA-2 G2,OU=www.digicert.com,O=DigiCert Inc,C=US
+> HEAD /dir_new HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=94f3fd7d08705e188b868da5c5616a8bb00cf709418889aff51131ce1b2fd404
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 9EB1D1EFB2D6D57A
+< x-amz-id-2: hYikEZiIVhJzLeCoGz/SocZvJDzn4TBSwxQfKu36B9pfaABSMEypE+ymOeh08IKwh8Zma3ufFpk=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3d5ebf800a49e98d1fc85aafd40dd999730c827685f69c3aba48756b4851374b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: F73F7F7AAD4707DA
+< x-amz-id-2: GPRbb6dBqMb2HIC9YRUcpTySJSM+ih7kSeegFS418sFufo0r9T3eMkNeXt2Gfm+1Br9w3K3ZxTc=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=f75adbb0d9a2c2e44c0a1d91366b3b66df915dfb7cd1b2efe3e14a78c96dfe81
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 10203A6C3408C96F
+< x-amz-id-2: 7X9cHfBtRxr/HzZTEGMnWODeDwEwFbDy/gv/dSfz1n8ZZiUozKJ6ut7sqO02HN2ZotKficYRuWE=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0073e6550015f48775a311b27517dfc0813f0f8c0ae3ea9b07917335d8d4b8dc
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: q+aCEt/skcAn5VKuuvcIUzOPQIA0qQD8HvEWZtb30NPmx80jMZCsGhIFzp6CIThTuGRv6GNTPeU=
+< x-amz-request-id: 6ED3061B69E66897
+< Date: Fri, 18 May 2018 19:23:21 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new2]
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=94f3fd7d08705e188b868da5c5616a8bb00cf709418889aff51131ce1b2fd404
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 76AE3F19F23AB304
+< x-amz-id-2: TV833vojgT0I7KOcDPkPYMc3pjpvetRYZZS590GHXrDj9dym8R2rmmWDkyK2iTmmwDtw39hmMRg=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3d5ebf800a49e98d1fc85aafd40dd999730c827685f69c3aba48756b4851374b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192341Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 149154F12A9F967E
+< x-amz-id-2: KgpKJzpqSEumfS4qzqrUUi76tBrYADPSN4HZVIMPTTXSI/q5/8gZfiY81/h3DzV2gHkM3nZPKBc=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=fb2eabaf64a9c38cb54956b4db259ca61d4b23bb9697e7fa81b17ee4f5341e9b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 4728642D2D6921DC
+< x-amz-id-2: aMSOXUYF4A7jXBFS9Ev7yv2vGzkgOL4R6jnm8vFwFR7H6XdrnAljhueowy8BZXHp3gxsRMrW71k=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=1777446307fa3f61915dde46d354c1e3d61b0eefb16693d99cbd4491dcc39434
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: tuDSvxvpPXvb7zTb4jmu/9yrDC8t6ORtFQX8lSTI8ZfLwFwNDAHd8+C7X1tTKvNX1TZDnClLFeg=
+< x-amz-request-id: 73FEC883D9DC6B83
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2e8546bcdefaa43b9c7fc64faaa4c2b43fcfdb92675fa44e960214e4af34c62a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: C33E6EFF20D1328E
+< x-amz-id-2: 2/Wl/b2tYrNOBb1f/wcL6IyoVgHBL5cR9+Z2/8gQRvFBJoMzNnBWw8m20B3JOuL6sXut3y/rd+A=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=e6b0b3d149377b855b000d03dfa8601daf680fc197b81af4d0bc896f9c86139b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 42146FD2B18804FF
+< x-amz-id-2: qFfMZma+2/PYurG8qEIuqTvINgn1zX81T0fc9dEO8k1mEwGLtdVZpfQ6fnQS5h6AlXV+nOGLcQs=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=fb2eabaf64a9c38cb54956b4db259ca61d4b23bb9697e7fa81b17ee4f5341e9b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 766A50EDD88A0834
+< x-amz-id-2: 3PWtx1Hub/RsiiYkjRRBfkdSpGPkfin8Sifi92lq0Fjioz4NG1pSk+8sfn4br8G02gktQhJSOrQ=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=1777446307fa3f61915dde46d354c1e3d61b0eefb16693d99cbd4491dcc39434
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: V7tTz33AHEnSEJOb3g+P/rh1AnzIUOsHkmlAbBZTkBuIJYGX3/vBML8EW9YrdTh6IAGgJp5Tp3k=
+< x-amz-request-id: D55C0CF087438534
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF] s3fs.cpp:s3fs_rename(1504): [from=/dir_new2][to=/dir_new]
+[INF]   s3fs.cpp:rename_directory(1380): [from=/dir_new2][to=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=78091a9874491e7e1448c5daa18b22f0f3c0f60c0250154ed40fdda4248431ea
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 41CC018EA5AD5B1C
+< x-amz-id-2: 7qNl/0Pe4GfM0LWljg6QREGn6nTMkaqedRmCv3HtxI3BfOAS4kznmVPL7nJL9qaCN4wmWxeACV4=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2/]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2/]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?max-keys=1000&prefix=dir_new2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?max-keys=1000&prefix=dir_new2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [max-keys=1000&prefix=dir_new2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?max-keys=1000&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5f2774c5990f5df7e9a7222a2ee91f28d6ee8d2d1259aa048b616404b5c7200f
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: sgWsJM7Rl0WGYFUN4us4awTI4s1+FoxPT9qN51Si1sbB67Bci4ETXbWn7O73dhJyyUpusHFOFlI=
+< x-amz-request-id: CD7E56F2742A4D44
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=db9b538ba6586e27bcbf621b718ce7934d7a91c3569d0f5f40cf186b4538a451
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 492A0915810DB6B1
+< x-amz-id-2: QqlXdgSQTIgzf8njPRgQuZD+IoUB51BIqy8JwRaEoFem8WHnCX7yEhsA+51FhjrhtmU1D3xc7rE=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=8fa6252fbe97df87e61c146abcf4e312df78d377665489f5fc7af3c78cb7ff73
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: EtAK3rsFnlJD4pYLsxLQ8nddCbnx9J1sfave0IKn1fj3nf/llv8AQffyhMd2Zh8H5jS07HrK0BI=
+< x-amz-request-id: D04089047B3DDF08
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:21:37 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new2/dir2/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3a720533d5f2922a88006e4f5a77f39b5e6f4bc285bec9bd5069a56b8d1a91cd
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: D917FD540BC87556
+< x-amz-id-2: phfF7YcM3HT0ktTIHKXuJ7kvWYwfzl2cpu8P+HXRb6fEVeGATJIRw1e6l4m458pkqL2fdsAESko=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=debf65e5382d8a376513f19a84aca407cde51352cccf7e1ed946a9ce599afb62
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 94DFA6BB810DA87B
+< x-amz-id-2: CwJBZzl/d6RB15lhy1qVlhxwFdQKr16vREaTrJbFWtuiXam+465toLLld1o0TfY2DjTXJhjdS0Q=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b694ec9f3654d5d5a114abbaaf057ce8431e88e24803d54bc98464fc89b43745
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: 6ZuFrw7IOviA3B1FOwJD1+fqpscH2BcMEmBo8NnLHa54YItTZEZmmg/EEVbaLvTYfrMnjxksKU0=
+< x-amz-request-id: 4F78BCE96102B0E2
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:21:37 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new2/dir2/dir3/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=05380404bc786b68054d23c53b362efdab060c1f600d058c65db1f7b3437afc8
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 33FD9E3E5F950D24
+< x-amz-id-2: aiNvod0CxvgVF8Kgt+VTmtDC3EOSyqQpB55sqqFjzRdz7xaLB1vM4BAyu4XBdEfexl2CWsFoWJA=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3/file31]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3/file31][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=f0ea9f5ed3f4f474141222a0152d62a473b03b7a5a8725f4ceb49ad48e5cf683
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: i+B6TrAntW16hwMlt5azO2+cFxc70JCo3Lu/uig+zHDXx7q1TlAJTp2btU/RZpktx5s+77q8AB0=
+< x-amz-request-id: 5C066539C89E98CE
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:21:37 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 33204
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526670894
+< Accept-Ranges: bytes
+< Content-Type: application/octet-stream
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new2/dir2/dir3/file31]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir_new2][to=/dir_new/]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/][mode=40775][time=1526649089][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/][fd=-1][size=0]
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> PUT /dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=fe50b878c8a7af0388ebf1cb370b1f19d9be88a6d9e62c0b6be8d8bc1cb1ddc2
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649089
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: 5RLM5LKbhUkU0hz6+VVafnKr5aLr/D+q/nORYLkB66RN4aRcntiOcgC7lAzu2FD93bsyQa9CwGk=
+< x-amz-request-id: 560DB03F376F2179
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir_new2/dir2][to=/dir_new/dir2]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/dir2][mode=40775][time=1526649285][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/dir2/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/dir2/][fd=-1][size=0]
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> PUT /dir_new/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=c11413bc326ac0d1f6f899824f039db639d61f1ecb713b6c476b7f2ebc46fcc7
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649285
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: DYy/gptyLe0YopBc0x+XaAMT9nvKIHxUFUO8tGeI+Zm9s12V9wdy7dVA59M7DvPnwSZ4eW1lRFc=
+< x-amz-request-id: EE08E7EAE781F86A
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir_new2/dir2/dir3][to=/dir_new/dir2/dir3]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/dir2/dir3][mode=40775][time=1526649285][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/dir2/dir3/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/dir2/dir3/][fd=-1][size=0]
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> PUT /dir_new/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=aacb55e974eaebdf0f43223affb3d34e74231c29d64a1edcc3f5b8f868baed16
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649285
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: lgTFU9jmrI7ZodzfCQxNk/kfcX3Y7SP65Xf80/gaLqjc15nFX9hDX62ETeZzANULHKq6KuVcVZQ=
+< x-amz-request-id: FF3D815983E3CAAF
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2/dir3]
+[INF]   s3fs.cpp:rename_object(1238): [from=/dir_new2/dir2/dir3/file31][to=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/dir3 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=e5bf178c74435adbb7bd29faa9bd8838473e8fabf5b4effc46b137591bd90dca
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 15DDBF9D4CCCB7F1
+< x-amz-id-2: L58EXAZZBCwSd+CfO1XORasHmKd/bej7TxTDFFNoKJ/UxnMmBtQy8RlfVjtf6iNDs+QsV8deUyg=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6d361afa28e197f15f7577e42e559c711092de8fc723c2547ac649fdea1f2f6c
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: sn5ci+VXan7CPQVcV9kwrC97fuRDH2Xjp+aTb0yQIBOLsm/wtQ4m8BF84TvOQNLHM+JPwdbDPhE=
+< x-amz-request-id: 5AE4D914ED493E1B
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/dir2/dir3/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=7fa06aa539d966c7f9a5319263bfddd7e4a04f3683c49268d27e5f5f37ea57f1
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 76E2E134C92FBF87
+< x-amz-id-2: JaToaUXpZWKGS8h2am5w8ySpuuY/alX8TDy+dZQFnfAwW6GaUHOojQ9OI6amLxkdo28RSicLRqc=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3e4e447eca29e581d00f295c1a39ad0e2768f8dfdf6dcde14ad9d478c08b09d8
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: k50dmlx+fZ+fkZ7tjl3sSliUIl8YjqG9wiv4C6tyt/jtqckwSjY4x7lNpceGnIPACFsGDRSA1w0=
+< x-amz-request-id: 6C312B19F82C3319
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/dir2/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2e8546bcdefaa43b9c7fc64faaa4c2b43fcfdb92675fa44e960214e4af34c62a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 0930D13A51298860
+< x-amz-id-2: LuFZJ1Yx4a2mwmsuZNPyyCjtXKOua1w14+ywQzO3y1DXQDeSurjWve617gnmjyxKDr9+0ZTbldE=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=e6b0b3d149377b855b000d03dfa8601daf680fc197b81af4d0bc896f9c86139b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: DN5xDzpHgJRlaNoDmd4cNqd9E3KPizs40ckRpFKVNGns/TeqfZ5mKSqalDnscgGzMwpTn8dxiSQ=
+< x-amz-request-id: 528814F04C2A9BCB
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Last-Modified: Fri, 18 May 2018 19:23:22 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649089
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/]
+[INF]     s3fs.cpp:put_headers(803): [path=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=19c0696f4fc6d6f677a4bdbc66a2918ec6be866588164be6fb67498c97d9ecef
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: AE21EB1B3B6A8F7F
+< x-amz-id-2: aZziI0un5VoVaHzYIGhfXbSHlqf3QU6sZ2EK3T+o7FbZlIcDn7TbeX59EWlDbosfG6z0+ezjmik=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31/][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/dir3/file31/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=55f39945f3b623300717cf2e9e6c22d3dc45b0517da1952138783b4b6ae15d77
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 55D6D6500B9654F2
+< x-amz-id-2: BkeAF+M4r7XFMfuEZsIvOmCUrICOSj1cwgFNG2D++TdRAkcDotvzcCVd+bMXCZwcbpI/aBjmbvk=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new/dir2/dir3/file31_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=cfb4be7fab2a2a776cea405a6d4637d0c1d856a31642c98c0e19d6510aadacae
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: A5808BC060AAF87D
+< x-amz-id-2: Yuu8K1WLi2wYKotknbK/m0tDra9E5pysj8yZlrZIco+MHRY8wBgh5bHV4LtMwf2/ltCnr64uP08=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=56802fd0e98725fec5be45187eae6290eef67efa82c6f0021af16de5923d9ed3
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: X/vfxxHK3l2xoUqGrnC3mkICL/riJVDpwfqtUGOsMMx6b/gcuNcF2YMtyB/bzjRxqufjithONoY=
+< x-amz-request-id: 0935CB363734B2A1
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:PutHeadRequest(2759): [tpath=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutHeadRequest(2843): copying... [path=/dir_new/dir2/dir3/file31]
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> PUT /dir_new/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-copy-source;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid;x-amz-metadata-directive, Signature=793bbe35c8f7c6de71ec73adb27df28005122de41ba29be0a3f23a10fa69a810
+Content-Type: application/octet-stream
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-copy-source: /nascc1/dir_new2/dir2/dir3/file31
+x-amz-date: 20180518T192342Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 33204
+x-amz-meta-mtime: 1526670894
+x-amz-meta-uid: 1000
+x-amz-metadata-directive: REPLACE
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: rYUYrpuQmBGoktN+nQJW6eHcVVaEOI7iIv3aRV7GuugpuDCLORoDXbgDUQ3iu/m9tAXABve2dtE=
+< x-amz-request-id: 2B1F30738BDCDC0A
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Content-Type: application/xml
+< Content-Length: 234
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[INF] s3fs.cpp:s3fs_unlink(1094): [path=/dir_new2/dir2/dir3/file31]
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir_new2/dir2/dir3/file31]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir_new2/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> DELETE /dir_new2/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=d47dfbd5affb4a56bf5c53a8b685c8f29cd92b0a71d42d040ba41af100138098
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: oGEy24A8GIzKvQVrT+hOjURT4ZIktrOCr0C55RN2/aUsHsxAlJAC9NO1MSrmD7zjYg7exoef6kI=
+< x-amz-request-id: 235D86499D7F4B55
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[INF]       fdcache.cpp:DeleteCacheFile(1820): [path=/dir_new2/dir2/dir3/file31]
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new2/dir2/dir3/file31]
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2/dir3/file31]
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir_new2/dir2/dir3]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5322cb90246313501ee7f66088b453aeeb9a0faf4cb424c51a1aa324f3c359ff
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: P71KUDrTnQbVfiJDV6EvKrREyAmHTy57ohMimuzntXGWhYc1vbQHKAdNqMavMhB+1Iu92tjq2Ps=
+< x-amz-request-id: BC46B66345ECF151
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir_new2/dir2/dir3/]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir_new2/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> DELETE /dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=dde05831263eac80ac87e3c8674b515f6be715bacee164b05f5e944e5bc34b6e
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: j7N+XY/mzbtyBrpMdIFwjynWPEOzFCNke/FLZ7fvbMp/rkgG/+93Eh0pBKZXIEVQ3E46ywIwvsI=
+< x-amz-request-id: 7A1EBD37A0E8889C
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new2/dir2/dir3/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=debf65e5382d8a376513f19a84aca407cde51352cccf7e1ed946a9ce599afb62
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 88425062CB2E747A
+< x-amz-id-2: NG/FjvA6apEdunqR4X0qFxX1tljkrnyt9nTC2r87xX6bESiGcl5Tu49HaPRkOUs/ehaLXV9x+xQ=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2/dir2/dir3]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5322cb90246313501ee7f66088b453aeeb9a0faf4cb424c51a1aa324f3c359ff
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: 40kb0vfJsr5hSu4HevjnMLF5E5+YsGUvCkmWcFxM20xmFebt2VZf1y8eIiIQkbokf5Z5QyYa5Gg=
+< x-amz-request-id: 8417DF785E3D5A8E
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2/dir3_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2/dir3_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/dir3_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/dir3_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2/dir3_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2/dir3_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=05380404bc786b68054d23c53b362efdab060c1f600d058c65db1f7b3437afc8
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 37D5D4DCE8689A1D
+< x-amz-id-2: SF9OpV4a2RrXQh87SJGWUQNIUTLrjazPoZOg65V/9RlYZXh1g10C2a+avo0+bKjRFKvQKQ1j3GA=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir_new2/dir2]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2/dir2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2/dir2]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/dir2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2f36a09de474716f2ee9f61cc5b4b4755b2cd5d5914ede48c9b896b4cb04032a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: smc157VFHI7OepWIlNepG73YxzTiJi/4CjWp8MrtNgPiVO3BUTjRybl5/glqTdPmDK0y/OVf51k=
+< x-amz-request-id: A3DBE15B59B5D33C
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir_new2/dir2/]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir_new2/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> DELETE /dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=9883581b8485425adefb8c598af1c2e8fa8df638f02958b8fb269d07938d389a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: kGq/ezW8245O2IZijCkyyGCo3aAiEoWa6KGgZrF1k2GYfdUoZDOWR094x1NjbVePh/rFifjQl/8=
+< x-amz-request-id: E60D658A0F5B29C9
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new2/dir2/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=db9b538ba6586e27bcbf621b718ce7934d7a91c3569d0f5f40cf186b4538a451
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: A1D7581A807AAF77
+< x-amz-id-2: N7vj214lm8mQUjyhFF6/BO74cPi9DtD3IneUAjbxzF5IuvUjZfKOg3JXxLa5Qd4oL0Dr5skt5Uk=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2/dir2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2/dir2]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/dir2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2f36a09de474716f2ee9f61cc5b4b4755b2cd5d5914ede48c9b896b4cb04032a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: HgKEO5l8eLkjt/vOCOQrXpjbgSy6S9MrriFnm4MWyfe5DhnmzCc5i5kNnFUaTPpt6k8ykF4sKKY=
+< x-amz-request-id: 8FA5A01A81132C4A
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2/dir2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2/dir2_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/dir2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/dir2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2/dir2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2/dir2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3a720533d5f2922a88006e4f5a77f39b5e6f4bc285bec9bd5069a56b8d1a91cd
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: DD3FE717C9BC3D29
+< x-amz-id-2: iWZpggocrttv1Ra/pKesMBlrdVYyKTtxSOIUSzCDqlVpJdEunQP5n5/VAXMwvRbbzNseyS09Kzw=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir_new2]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=9b524768a994ad9cf3f1a8eaaba1fc24e1fcf1169e0f670a8be6be96a3f7366b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: +W7Yl0JH90hXqbuWengtCdnza/m3w9LfRfmcZNcDeeLa9AYs+NVB2S0TW8YQ9ESFriGhsWHKrzA=
+< x-amz-request-id: E40603C0E981717C
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir_new2/]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir_new2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> DELETE /dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=c7cae3216ec27c1fdf1e17a43141f7b84922413f0cad3161882e2d9a34e368df
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: vzlsjzL+P2pJ3yz49lQL17cvYPTnEq+etWkRjgG8PdKbdV6/f9Lvf2eZAiomtz8P0pOVdGhqQiU=
+< x-amz-request-id: C13419DC6AD1E68F
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new2/]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b1a44eeed791171033de3712753bc2f22b53d46d90431517e066954ff32f6a86
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 47AE83E2B441C87E
+< x-amz-id-2: XBzbqa6btW5WBJJ2afipy8B5ilBcP6ZkvJhc5T3QI8p9+eK0/nO4PpGLfIE09MC0Gb455LxXDfw=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new2]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=9b524768a994ad9cf3f1a8eaaba1fc24e1fcf1169e0f670a8be6be96a3f7366b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: yUcfX8fL3FpESI/F/aDLUSLrw8dLPKdZHX7xUtxtmlodL7w31H14Rt5H1KYAWf3DOttbUxPCFlc=
+< x-amz-request-id: 6ED7D72EA6304D46
+< Date: Fri, 18 May 2018 19:23:22 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new2_$folder$][bpath=][save=][sseckeypos=-1]
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7fc344002d30
+* Re-using existing connection! (#5) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.64.2) port 443 (#5)
+> HEAD /dir_new2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=78091a9874491e7e1448c5daa18b22f0f3c0f60c0250154ed40fdda4248431ea
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T192342Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 16F91CDEE00C71BE
+< x-amz-id-2: f5NXyylRaMiYFHAYtHk8v8deO8xqv5kb+SPxzDiN8yAam3X75Fjdw6Yu8LxYVOekM3i84Qqr3E4=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:23:20 GMT
+< Server: AmazonS3
+<
+* Connection #5 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+
