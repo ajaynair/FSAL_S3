@@ -1,0 +1,684 @@
+mv dir1 dir_new (dir1/dir2/dir3/file31 exists)
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir_new]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir1]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=25]
+[DBG] fdcache.cpp:ExistOpen(2118): [path=/dir1][fd=-1][ignore_existfd=false]
+[DBG] fdcache.cpp:Open(2050): [path=/dir1][size=-1][time=-1]
+[DBG] s3fs.cpp:s3fs_getattr(866): [path=/dir1] uid=1000, gid=1000, mode=40775
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir_new]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_getattr(842): [path=/dir_new]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir_new]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_rename(1504): [from=/dir1][to=/dir_new]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir_new]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=26]
+[INF]   s3fs.cpp:rename_directory(1380): [from=/dir1][to=/dir_new]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=27]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1/]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1/]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?max-keys=1000&prefix=dir1/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?max-keys=1000&prefix=dir1/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [max-keys=1000&prefix=dir1/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?max-keys=1000&prefix=dir1/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] s3fs.cpp:append_objects_from_xml_ex(2635): name is file or subdir in dir. but continue.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=19]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=20]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=21]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=14]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=15]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=16]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2/dir3_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2/dir3_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2/dir3_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3/file31]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2/dir3/file31]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2/dir3/file31][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/file31
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir1/dir2/dir3/file31]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/file31][time=103374.886954544][hit count=0]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir1][to=/dir_new/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=28]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/][mode=40775][time=1526649089][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/][fd=-1][size=0]
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir1/dir2][to=/dir_new/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=22]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/dir2][mode=40775][time=1526649285][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/dir2/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/dir2/][fd=-1][size=0]
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2]
+[INF]   s3fs.cpp:clone_directory_object(1350): [from=/dir1/dir2/dir3][to=/dir_new/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=17]
+[INF]   s3fs.cpp:create_directory_object(1040): [path=/dir_new/dir2/dir3][mode=40775][time=1526649285][uid=1000][gid=1000]
+[INF]       curl.cpp:PutRequest(2877): [tpath=/dir_new/dir2/dir3/]
+[INF]       curl.cpp:PutRequest(2895): create zero byte file object.
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutRequest(2975): uploading... [path=/dir_new/dir2/dir3/][fd=-1][size=0]
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2/dir3]
+[INF]   s3fs.cpp:rename_object(1238): [from=/dir1/dir2/dir3/file31][to=/dir_new/dir2/dir3/file31]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir_new/dir2/dir3/file31]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new/dir2/dir3]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/dir2/dir3/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir_new/dir2/dir3/][time=103374.974704669][hit count=0]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new/dir2]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/dir2/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir_new/dir2/][time=103375.000704705][hit count=0]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:AddStat(356): add stat cache entry[path=/dir_new/]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir_new/][time=103375.025621408][hit count=0]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir_new/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir_new/dir2/dir3/][time=103374.974704669][hit count=1]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1/dir2/dir3/file31]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=18]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=23]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=29]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=19]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3/file31]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/file31][time=103374.886954544][hit count=1]
+[INF]     s3fs.cpp:put_headers(803): [path=/dir_new/dir2/dir3/file31]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31/]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31/][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir_new/dir2/dir3/file31_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir_new/dir2/dir3/file31_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir_new/dir2/dir3/file31_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir_new/dir2/dir3/file31]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir_new/dir2/dir3/file31]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir_new/dir2/dir3/file31/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:PutHeadRequest(2759): [tpath=/dir_new/dir2/dir3/file31]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [PUT] [/dir_new/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[INF]       curl.cpp:PutHeadRequest(2843): copying... [path=/dir_new/dir2/dir3/file31]
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir_new/dir2/dir3/file31
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] fdcache.cpp:ExistOpen(2118): [path=/dir_new/dir2/dir3/file31][fd=-1][ignore_existfd=true]
+[DBG] fdcache.cpp:Open(2050): [path=/dir_new/dir2/dir3/file31][size=-1][time=-1]
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_unlink(1094): [path=/dir1/dir2/dir3/file31]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1/dir2/dir3/file31]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=20]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=24]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=30]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/dir3/][time=103263.361962912][hit count=21]
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir1/dir2/dir3/file31]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3/file31
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/file31
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir1/dir2/dir3/file31] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/file31
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[INF]       fdcache.cpp:DeleteCacheFile(1820): [path=/dir1/dir2/dir3/file31]
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir1/dir2/dir3/file31]
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir_new/dir2/dir3/file31]
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1/dir2/dir3]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=25]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=31]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1/dir2]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/dir2/][time=103260.614625680][hit count=26]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1/dir2/dir3]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1/dir2/dir3]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] s3fs.cpp:append_objects_from_xml_ex(2635): name is file or subdir in dir. but continue.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir1/dir2/dir3/]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir1/dir2/dir3/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir1/dir2/dir3/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2/dir3]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2/dir3]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2/dir3][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2/dir3] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1/dir2/dir3]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1/dir2/dir3]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2/dir3_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2/dir3_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2/dir3_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/dir3_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir1/dir2]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1/dir2]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=32]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/dir1]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[DBG] cache.cpp:GetStat(276): stat cache hit [path=/dir1/][time=103253.475448879][hit count=33]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1/dir2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1/dir2]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/dir2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] s3fs.cpp:append_objects_from_xml_ex(2635): name is file or subdir in dir. but continue.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir1/dir2/]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir1/dir2/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir1/dir2/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1/dir2]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1/dir2]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1/dir2]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/dir2/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/dir2/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1/dir2_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1/dir2_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/dir2_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1/dir2_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/dir2_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF] s3fs.cpp:s3fs_rmdir(1129): [path=/dir1]
+[DBG] s3fs.cpp:check_parent_object_access(699): [path=/dir1]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[DBG] s3fs.cpp:check_object_access(593): [path=/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/]
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[DBG] s3fs.cpp:append_objects_from_xml_ex(2635): name is file or subdir in dir. but continue.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:DeleteRequest(2477): [tpath=/dir1/]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [DELETE] [/dir1/] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 204
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       cache.cpp:DelStat(565): delete stat cache entry[path=/dir1/]
+[DBG] s3fs.cpp:get_object_attribute(446): [path=/dir1]
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]   s3fs.cpp:list_bucket(2476): [path=/dir1]
+[INF]       curl.cpp:ListBucketRequest(3109): [tpath=/dir1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [GET] [/] [delimiter=/&max-keys=2&prefix=dir1/] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com?delimiter=/&max-keys=2&prefix=dir1/
+[INF]       curl.cpp:RequestPerform(2057): HTTP response code 200
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[WAN] s3fs.cpp:append_objects_from_xml_ex(2575): contents_xp->nodesetval is empty.
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+[INF]       curl.cpp:HeadRequest(2714): [tpath=/dir1_$folder$]
+[INF]       curl.cpp:PreHeadRequest(2663): [tpath=/dir1_$folder$][bpath=][save=][sseckeypos=-1]
+[DBG] curl.cpp:GetHandler(285): Get handler from pool: 31
+[INF]       curl.cpp:prepare_url(4257): URL is https://s3-ap-south-1.amazonaws.com/nascc1/dir1_%24folder%24
+[INF]       curl.cpp:prepare_url(4289): URL changed is https://nascc1.s3-ap-south-1.amazonaws.com/dir1_%24folder%24
+[INF]       curl.cpp:insertV4Headers(2406): computing signature [HEAD] [/dir1_$folder$] [] []
+[INF]       curl.cpp:url_to_host(101): url is https://s3-ap-south-1.amazonaws.com
+[DBG] curl.cpp:RequestPerform(2040): connecting to URL https://nascc1.s3-ap-south-1.amazonaws.com/dir1_%24folder%24
+[INF]       curl.cpp:RequestPerform(2079): HTTP response code 404 was returned, returning ENOENT
+[DBG] curl.cpp:RequestPerform(2080): Body Text:
+[DBG] curl.cpp:ReturnHandler(309): Return handler to pool: 31
+
+

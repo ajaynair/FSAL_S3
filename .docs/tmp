@@ -1,0 +1,1246 @@
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf8152c10
+* Connection 5 seems to be dead!
+* Closing connection 5
+* About to connect() to nascc1.s3-ap-south-1.amazonaws.com port 443 (#6)
+*   Trying 52.219.62.34...
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* Server certificate:
+*       subject: CN=*.s3.ap-south-1.amazonaws.com,O=Amazon.com Inc.,L=Seattle,ST=Washington,C=US
+*       start date: Jan 30 00:00:00 2018 GMT
+*       expire date: Feb 04 12:00:00 2019 GMT
+*       common name: *.s3.ap-south-1.amazonaws.com
+*       issuer: CN=DigiCert Baltimore CA-2 G2,OU=www.digicert.com,O=DigiCert Inc,C=US
+> HEAD /dir1 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3ef727989719dab8599ff2a02624a881cec3db6ed7eb59726f146bab571b4a05
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194931Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 31BEF3552F9EA65E
+< x-amz-id-2: o8BGr0O8lL/feslM2EGPEvzg8/9mi3S1Ri5rA/pPXboDXIJueXqkgKpwyB09k+qEZG/jEg5eirs=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0320c5856090f703bca565eefe386e503767944226a1297d620df45276342683
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: F4571F98DA7D02A6
+< x-amz-id-2: b+tjxaGUurufOSqqFi77W2fGz2PpuUFhcDkrCOVKYdOerJyqKI41gMwGmyO09KfwJ6BTw5ZnS1A=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=dd6c47c5c62623e2623eef2d605a04fabbcd80b05005f62b02adc762f8adc708
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: B218E11501468467
+< x-amz-id-2: 8gAqq3qCOq/cOCp98BzyjqiUftfcHBh+K9kWvkj9irWf6NtkIcIUgf5AWor4H84oPnrYp5fa93o=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3ad964dd4b9b68365e6767b60ea0cd50724db9715888951f834fa513016ca42f
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: 8eIxnhDoZlPlIJcrkv5aaNIJ+1/eHZbfFa4tyzLmUc0RyZCjECwlkoPbHI1c+sz7V+DQ2xob9yI=
+< x-amz-request-id: 33494B4D6A6460D7
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=82a67955bcda60ab50b9e94db946f8a86cf3b0382931cb013f347778f70e32e1
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: C66CF57D5BB0FF39
+< x-amz-id-2: 3wGAupUraW7GCKIRH1bXqpPA5EAvf0ER3U98eMG+bCkfI5EDjt9P7hNldFcSnEt2PGFOcyQfbyc=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0320c5856090f703bca565eefe386e503767944226a1297d620df45276342683
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 1EDC9A1FA0E11A2F
+< x-amz-id-2: hqhV/ZHvKygbnf7sRLoX8I1Ji1vjkusfQMMkuIhsWplgvWZT7xg6NETMPL8GJ44W+0EkWvjRBmQ=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=dd6c47c5c62623e2623eef2d605a04fabbcd80b05005f62b02adc762f8adc708
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 73FBCADC4367274A
+< x-amz-id-2: Hksb5Vw7UwBOMId8gkjaFfiDMWhh7X1mSu7/xuK/ewbKoPyWg0SFB1cygxd8sciKPkdNqqflIsk=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3ad964dd4b9b68365e6767b60ea0cd50724db9715888951f834fa513016ca42f
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: ZLGGlMBAzB471GdLn0xgLqQPMADi4BZjG+RQ3Uh3Lblv0oU+CbjX6UqsSixLh3TkKKFanNcD+ok=
+< x-amz-request-id: 97BA7E4FE3C81495
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=82a67955bcda60ab50b9e94db946f8a86cf3b0382931cb013f347778f70e32e1
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 7419FB2CC4E55914
+< x-amz-id-2: OMyi7a2fMUQc3bwZmN9J6TQOyxiQiKfykxIL+Juz8TZZCriViyuFYFt8SL4WedfpfvAmNAPWClU=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0320c5856090f703bca565eefe386e503767944226a1297d620df45276342683
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 5682D5E720D4A22D
+< x-amz-id-2: iypD9WVKUFqmdUkCqP/UYekA4DNSZWcoV540Z18QNGhuN2IswRQZwfKHdC0hpSXbeffTH0Mh1/M=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=dd6c47c5c62623e2623eef2d605a04fabbcd80b05005f62b02adc762f8adc708
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: E54928C2A7293060
+< x-amz-id-2: 2VXJYwEAazKbJqXIqIrQ4aug+Z7/kBL4PwZ2GblIqm3VK3Cxqi39Yfm7q/6KKmzzqgQQgZrVeXA=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3ad964dd4b9b68365e6767b60ea0cd50724db9715888951f834fa513016ca42f
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: XNy9ku6ElvLsGr7gkwSM1nHp2Pt3AZIuW+NQcbG4x3rnwhQMlj9SfRByMNGU4iaVr0SGhZ8kAl0=
+< x-amz-request-id: C61BEE0E3EC67702
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=08f05ce7495c5a5833a8f8013de147750739b214e5d62f500aa2f72e90460190
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 793F2FF6DC23A072
+< x-amz-id-2: wU4NGYADdVLl96Q85X1O8llIIWsdPDN8TQHN8/Z1Sj4bPSR6/fNffK/9oUyFGE6jhNY/OHj2ZKY=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?max-keys=1000&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=4b98bb02949a127b8a67a7d2f3a1cbb75543c4bbf4b96255818f5f8360d7a4e1
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: +mktHisVABf2Pi/pQv7WAmqQkyZV75LrcdAV9dtBCFzY9Hkh4y8x0tzOUhjEDcCTFb5TNCC9twI=
+< x-amz-request-id: 2C99288FC62E9ABF
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5b486009db8c5c4c2f1a094b2e678f8f5baabc3d7cd2dfc37a2e04d5439a40fb
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: F6D76879D909DBD4
+< x-amz-id-2: Ib4/px/Q2FWKpvNmxJw9MF9jth8Ira0l/OkIM9yqX55IVdByhglH9s6e1znx1bESnKOOoSKtWFM=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2/dir3_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=db499b9dcfccc20d29bc0ce8bd9c0e92f4c67a1a7d0380b3801a95c4ba20df29
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 999C8A1320B8B0ED
+< x-amz-id-2: Ex+ykCt29cecEaDpKE1IefrZw7ZLFKMZVfj+j7d552hYNUSo/A4fNfHjcJkM21386+7cpeMSqbg=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=4ec85ed9c6fe5e38d74ff2ef5a5e2bd4cc978298de3b662ac702767b85897cba
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: O7cjMUdC4cRxCo/KqowN5P6c1qDbfZCO9JG2vPbFOMszIbbphmAnyc8QhTifbwJ+Bx7gPjNyUz0=
+< x-amz-request-id: A8EEAF708FF08788
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Last-Modified: Fri, 18 May 2018 19:32:07 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 33204
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526670894
+< Accept-Ranges: bytes
+< Content-Type: application/octet-stream
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> PUT /dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=5477ad32b8b55da88978558f4c8b73f133ea3c75ca5a3b4dc3a598a1c95ba5ab
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649089
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: wpNHDYsaX/bTMNgm1wyidR9VSdqwkL/KqFsoiGGgDC6GK1G4uRV+nhfTwKn9PMSCGwXNdb/vuXs=
+< x-amz-request-id: B6D7D8A809D8B696
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> PUT /dir1/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=3b471e32da33c1deabfa4ee2658cd22fdb0fb47d50c2de97fc88eba6f3a7ce36
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649285
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: ptiHdwBXC+Gv9kEZQn89I8cvWggfWUJGNw6cbbXDBsVs3AIVLVF5CRWnjHBnMdXb9xfr1G9VMyg=
+< x-amz-request-id: FBD228C27CA4D151
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> PUT /dir1/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid, Signature=bb2aacd816f07cb6b72a6608d7d62b4b4e2a2b75a093360e7fbc908c35998ef2
+Content-Type: application/x-directory
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 16893
+x-amz-meta-mtime: 1526649285
+x-amz-meta-uid: 1000
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: Rdnn0CYYH5OlRC+4uS9hIgJHSZS98rcs7NwIa9ynW1NdTPDC7b30LPUbx6cMMFmLcrh4gH2plGE=
+< x-amz-request-id: 22E4F4CECDC3699C
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/dir3 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=d2dca4f9ae5320628fef2c305e0161fbce9cc616a8ed222e7315f3992f5f9af7
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 0E5B8B19AE628E24
+< x-amz-id-2: AQCz9F8/megJ658KMrCud/nHfzJbMDLtvVBqlvVAH4RzakgDMhKFtUkPCZgydfeXcWo2hQwokng=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=aa3e612f6a445663c5317b9f6c41831d5120d9f65e47bf6333b03a132494034a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: pjOA6bhsXv5sUuY4CFOYBugkfbXhn+fJRqZHMxm97qNybkOYbOtESLUszLqqngdlnTqywzqH9Xo=
+< x-amz-request-id: 613B26E8010F996B
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Last-Modified: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6b373fb68f8d056dbfa5a6fe317e5963a7d5a774b3902d1a139de041029fd76b
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 43CC8FC4C337EFD0
+< x-amz-id-2: dsPwcakNCxYJTV1uoUlUZ0BPOGfRp188mRzRvGPxHyi4Zaeh1q45Uj7yJKAudCoDZmZrKUTx1Ug=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=891618cfefe82a5f5ac03d51674f5220d167fc22bbf895bfe7eb4d9a0d6a99d3
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: 0i0//HlJ0uuNaCr93BuuNCMplAnNsPlT/+fXctRP7eoMaBGWe3SkM9jM1s7PBs5dWJ9TRlQKUTo=
+< x-amz-request-id: 29394D8335972B47
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Last-Modified: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649285
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=82a67955bcda60ab50b9e94db946f8a86cf3b0382931cb013f347778f70e32e1
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 8483756E1921E5C6
+< x-amz-id-2: rNo6q668mgyTh/xk3U2VGWWI7BxTHquFUmgzIJGp8lZ1VqTajzQlbZbn/emUJj2SnfVuhIHB8Jo=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=0320c5856090f703bca565eefe386e503767944226a1297d620df45276342683
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: BEdqy3ht+UryJSKN1FaSTKn59hRpRMsYYLXrcpv4D3es/x7hvqqjhyHqooiIer3PWI2QakS1Cc4=
+< x-amz-request-id: 5A2F37B46948E09F
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Last-Modified: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 16893
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526649089
+< Accept-Ranges: bytes
+< Content-Type: application/x-directory
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=c3c374aeab4fa2c7f7ab4ac31e23aa68592ac93fe00c7451e47df2d5132bd256
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 2767DAF39AF55517
+< x-amz-id-2: 4gE/Bcj4hvPX8r/92po2r+kQR511l10/l1U6gd3zSDn7IzbjrF94qcGZ53ayWv9DDIJ4s/Vw0s8=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/dir3/file31/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=ab2f893ec7b2b3d03853158849cfbf1c17458060f0cc9544147e75f630bfa572
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: A5A56A786CE8C76A
+< x-amz-id-2: ShARtV2fYRbge/pa0uL+sKNVdDeXrrPAVKAef9BNjpzNu4qs1VbHQX3B6ObgHvgvSC3Xozyo4RY=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/dir3/file31_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=e3078e6f1074a78df480ca3a8a0f9425e05a67ef2248d28aeb1136b21a113613
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 95596966656651F9
+< x-amz-id-2: nkT2Erg/HmkHoKhC56EyNB+41qUgudokUDFnaKUOlODHE1lxG5DldJxjFHLPG3eCl5WtIyu4HEc=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir1/dir2/dir3/file31/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=7683110b11ff1b017d155d6d61571420f62ae1c1c999e44881a1374afd12740a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: EP8kxKhyyeCrtSWVylvqwJqA6PEwYiFH4ef1A7+hajgui2RyX7zpOmuPVV7NBu9bQ2s9lifEII4=
+< x-amz-request-id: 5178232617724F8B
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> PUT /dir1/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-copy-source;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid;x-amz-metadata-directive, Signature=d627fc921c646d3d3240593cbba359fbb7c80e854aebdf3056e68b6c56af0f76
+Content-Type: application/octet-stream
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-copy-source: /nascc1/dir_new2/dir2/dir3/file31
+x-amz-date: 20180518T194932Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 33204
+x-amz-meta-mtime: 1526670894
+x-amz-meta-uid: 1000
+x-amz-metadata-directive: REPLACE
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: 1mEwlQfbzgCK1/I09+a9+ewoG9ftFnbki8lG+VhsclZoUbxxayEfvil8319fAZEOVcfGFhRFwGk=
+< x-amz-request-id: FEFF42BFE9B284C7
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Content-Type: application/xml
+< Content-Length: 234
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> DELETE /dir_new2/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=47658facf19d8a4e8ce33ecc1cc23889052158caccc468feae55c969a77545df
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: bQE+jULBTPz0uFIur1Reajh1epA1Aj5+W5dk76AENK1FaoJVe2+qrd0gK3tuuu8yuWw28PvXEow=
+< x-amz-request-id: AC2EB0FDF79CDA46
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/file21 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5cf9163f67b76f344efd35c3f49bb30c10743e493ba90f7f50db6bee38284029
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 2738ED82B381C84A
+< x-amz-id-2: rzRT0/+SK8SCVcXmm9ODa6YyIOhfl+fKGTwi4G+g4bKUjMxTVVu4sbDY/erEPiAuxCKnjMaDCts=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/file21/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=45b2246be2a17d50382a41a48e12a6d35516959c13c982fa95cff76f4f0d6899
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: FBBBEDE73769497C
+< x-amz-id-2: 3Rd6dN6qlaYbSe6RG7fTnQR2Qo73jLPXftPMBYlcjnPl/9FuI1Bm9OVlfql9lCBXOomwb9Y0cGQ=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir1/dir2/file21_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=c8ece334e78957978e320a842ad30f84c4535eba374256220816b1582f5f899e
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 2A6FD7B6DEB5D98F
+< x-amz-id-2: zSxYngFgq4usM3X5aQ/Ip3PyWhsVgCJT/2hD5e9zwWkGRu5IF/Jh9r34tNvoXOcAbaUGthFEPcQ=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir1/dir2/file21/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2b65383a151d3e60808dd530e18e85bb1e48ae4595f16f7a21f57ee4394ee9c8
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: Hz8zfaUR/g2en4canby3q2oICeQSnKesxwVKG3jhw8gI7nTGUgBrTIox6h29QcuahjZgBS8vy1c=
+< x-amz-request-id: 4277ACC130F993B0
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> PUT /dir1/dir2/file21 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-copy-source;x-amz-date;x-amz-meta-gid;x-amz-meta-mode;x-amz-meta-mtime;x-amz-meta-uid;x-amz-metadata-directive, Signature=8cadce2b70dc6e63368292293ccecc4007d2176ba479dcbd31e5937348bfd1ee
+Content-Type: application/octet-stream
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-acl: private
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-copy-source: /nascc1/dir_new2/dir2/file21
+x-amz-date: 20180518T194932Z
+x-amz-meta-gid: 1000
+x-amz-meta-mode: 33204
+x-amz-meta-mtime: 1526671901
+x-amz-meta-uid: 1000
+x-amz-metadata-directive: REPLACE
+Content-Length: 0
+Expect: 100-continue
+
+< HTTP/1.1 100 Continue
+< HTTP/1.1 200 OK
+< x-amz-id-2: LRK7TM0mikVByD/JTq3sE8zieSU1TTDEnwiPusRAvtd/pm5umAqDAydEKnHX//qW4EuqEVXNd+I=
+< x-amz-request-id: 83FED79E6B5E7C8E
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> DELETE /dir_new2/dir2/file21 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2a69181cc966e7d84db50499131fb0f375e72d08e0a7108c7777b1f17b5d2bfb
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: iiVyPXUX7PckLdChMkYIA3dYEpgFvJYuw6Vg0jlHQ9FvtRTCf5/pz5jM6mR5ljBA9tX8AjnbMWc=
+< x-amz-request-id: FC9037DE32E5F801
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=ccc5c8f366274ab948978f53f664f60d5ce9d09375df7527d6480e8c6e5ca468
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: UbeHv9RI5B0lW4fJOjiqhw/Qq+/+0mCPUpekquedBPJmt4qIgDszoxOWgmq+WktIMscGP8vMgms=
+< x-amz-request-id: 406F7234AE605793
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> DELETE /dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b485f5e1bb0a7dd4c5d3bd5d27a2faccbed1e4807cc803ec21e8fc2fb7ce87e2
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: PLYnj7WgyLKxAv9l5j+4MbEZxaXOuCFbUkkfEzq7SupiX+TGNiqHP6Tsd8WyCftVhVtrQ/Iw9pE=
+< x-amz-request-id: F583A467D578A53B
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2/dir3 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2d92c69eb58dfa82e08e4e0881eb129fccb4690fbd4ebb79959a7c40803d434c
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 4ABED4512D61A74D
+< x-amz-id-2: r6DcjVSo3Zt5FQcyUsBI1FyvRpDj2jfC/syg+VLy17rrUVP8jcnC12XLnwPeC84N3r2euzTvKeI=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=ccc5c8f366274ab948978f53f664f60d5ce9d09375df7527d6480e8c6e5ca468
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: OvE3/hkw3ih6dEjHjz8rxRXSrm29+RIbA12FyjgAXLxuNF/Aqrxut/Qv4ja6N6hBlxKiS8SBhHk=
+< x-amz-request-id: 0AD0EB43B95928EC
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2/dir3_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=db499b9dcfccc20d29bc0ce8bd9c0e92f4c67a1a7d0380b3801a95c4ba20df29
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 9FC06C2D9E245FAA
+< x-amz-id-2: ZrZD9fX26c8hFGQ+I9x1BejcT4i5e9mGePcW1SP2AhDi9LIrmCe3QgfP5OvCoT3UJnjloZkhyDU=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=89dc432bd4a5e9de1e91924ff4cad37557d303e41cd789dd94c861f0e5b7a1aa
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: gqxZz6J7b7DTFZF3C7ROsBorECsMyaBRVVuHCph37H053FMcZG528NbYwVkO/RjTJgAkU47XlM0=
+< x-amz-request-id: 8FB8D89581A3EE28
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> DELETE /dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=d539e616442c1c7eb6ded7760952bb3cea19013a9a091a12dbbd7742ecb16464
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: pqcnYkMJOyJ/OI2FDw+IyTfjinLU4lb/eG4ePRi8MoGMo8NBSPZr4k14epqrYDUircdGX7+isdg=
+< x-amz-request-id: E32066C6CAB4B331
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=cb7559cc54da36493e2bf6e8740eeb64ca68765e7abf71dfb4f87da339674b03
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 97409822FA4AEBA3
+< x-amz-id-2: D3q+Qkf4T40YOXkRV5SHrSTqglMnvBCVJYf8f8cP+mZIff6HezV6U2TgPhEpDj4R1/2O4zH3ZmE=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/dir2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=89dc432bd4a5e9de1e91924ff4cad37557d303e41cd789dd94c861f0e5b7a1aa
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: hqI7Q+CvuuSaMOUUqFGHhcfnV+4qCeCzK1m8TJskIsuDeu6x5YcjP+6uClMXUOHHDl5c47b0X8Y=
+< x-amz-request-id: A132BA7F5A53B5FE
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2/dir2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5b486009db8c5c4c2f1a094b2e678f8f5baabc3d7cd2dfc37a2e04d5439a40fb
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: FEE5A1026C19DD0A
+< x-amz-id-2: stVnvsIWghGnX7vdCVSIYSUIr3c8v3lJeA0rjSvkjsYuISDvDM/hs5Sfo/bLpOcZIuApVTOSOP4=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3d949781b9ea6492737291b7777138f625f57c8d9ffb9b281f14e0c9a75076b7
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: U1BVhoc2PBWQrdQQusv0aaEN9WU5n1eBwMw0EgYL9egwyWifZKXvuWHn+XhVwVBrg6CCe32yuzk=
+< x-amz-request-id: EF3ED534C5FDC5F4
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> DELETE /dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=32c0738b736ff62c33e4c55d39f69914ad87da8663dc8ac7ae77d8c36b8e730a
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 204 No Content
+< x-amz-id-2: rOFRvmuCAWUqCkPyH25bb2tB5b8OtXEsGYQtu8EYpccm0m14nIHLavtL7GHo+KYJ2i5XrCMMa/0=
+< x-amz-request-id: 805CCDD7078FAA67
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=2cd47ebd0393bde894ba163cacb9ce474d3f3e05423be05c4a76a09a622a8815
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 9398DA9C8215288D
+< x-amz-id-2: zRorXDFDvz/IJtF6/K7bAvvd6lqMAQb6VitRKR7gSfPIxrNtJtPHmiguScUEsYPno9taeekah7I=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> GET /?delimiter=/&max-keys=2&prefix=dir_new2/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=3d949781b9ea6492737291b7777138f625f57c8d9ffb9b281f14e0c9a75076b7
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: uRs0iP3ultZjG6EtRKqTHpnKieJihMzq5W86RpXrtcu8y75uL/6Wv/kVNW3LIOaSeMGT6SGQICM=
+< x-amz-request-id: 0430CBA4F3DFEE80
+< Date: Fri, 18 May 2018 19:49:33 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Re-using existing connection! (#6) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#6)
+> HEAD /dir_new2_%24folder%24 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=08f05ce7495c5a5833a8f8013de147750739b214e5d62f500aa2f72e90460190
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194932Z
+
+< HTTP/1.1 404 Not Found
+< x-amz-request-id: 409F62E1F89AE979
+< x-amz-id-2: r8Zaq5n/6e33SMdqgerqtC58cTloq+0NPYFOlsquhhWi3IhEoVtX/gcwgg78tQM6gr2JEg0rFe4=
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Date: Fri, 18 May 2018 19:49:32 GMT
+< Server: AmazonS3
+<
+* Connection #6 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf006be20
+* Connection 6 seems to be dead!
+* Closing connection 6
+* About to connect() to nascc1.s3-ap-south-1.amazonaws.com port 443 (#7)
+*   Trying 52.219.62.34...
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#7)
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* Server certificate:
+*       subject: CN=*.s3.ap-south-1.amazonaws.com,O=Amazon.com Inc.,L=Seattle,ST=Washington,C=US
+*       start date: Jan 30 00:00:00 2018 GMT
+*       expire date: Feb 04 12:00:00 2019 GMT
+*       common name: *.s3.ap-south-1.amazonaws.com
+*       issuer: CN=DigiCert Baltimore CA-2 G2,OU=www.digicert.com,O=DigiCert Inc,C=US
+> GET /?delimiter=/&max-keys=1000&prefix=dir1/dir2/dir3/ HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=d2c65db6be2765194b6b4847c9be119b15f23244d415c8be6cea322e0f5bbf96
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194943Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: 3lXKA3K2uf4DbGNdN3o0Q/VPiZGiFFmRHAUDqviP7mD7AAt7foPcIr6s3sexpeKcE8oKf/Zamcw=
+< x-amz-request-id: 4C3F2A14F40AC05F
+< Date: Fri, 18 May 2018 19:49:44 GMT
+< x-amz-bucket-region: ap-south-1
+< Content-Type: application/xml
+< Transfer-Encoding: chunked
+< Server: AmazonS3
+<
+* Connection #7 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+* Found bundle for host nascc1.s3-ap-south-1.amazonaws.com: 0x7f1bf0050730
+* Re-using existing connection! (#7) with host nascc1.s3-ap-south-1.amazonaws.com
+* Connected to nascc1.s3-ap-south-1.amazonaws.com (52.219.62.34) port 443 (#7)
+> HEAD /dir1/dir2/dir3/file31 HTTP/1.1
+User-Agent: s3fs/1.83 (commit hash dbe98dc; OpenSSL)
+Accept: */*
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJYTFBEOJJ5FHZP6Q/20180518/ap-south-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=9c8d9adb8e7ae780009a215ac2bee045385c51a4ecf536fabadfbc0e26d01b91
+host: nascc1.s3-ap-south-1.amazonaws.com
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date: 20180518T194943Z
+
+< HTTP/1.1 200 OK
+< x-amz-id-2: qLGKh39TniBHa3hhbrSkyM/7z01Pyd+hPiQXd8L6zWT75JTXXAZ1jukoh0lQq8+uej5ki+Y/Vfc=
+< x-amz-request-id: 5736B241109E6F70
+< Date: Fri, 18 May 2018 19:49:44 GMT
+< Last-Modified: Fri, 18 May 2018 19:49:33 GMT
+< ETag: "d41d8cd98f00b204e9800998ecf8427e"
+< x-amz-meta-mode: 33204
+< x-amz-meta-gid: 1000
+< x-amz-meta-uid: 1000
+< x-amz-meta-mtime: 1526670894
+< Accept-Ranges: bytes
+< Content-Type: application/octet-stream
+< Content-Length: 0
+< Server: AmazonS3
+<
+* Connection #7 to host nascc1.s3-ap-south-1.amazonaws.com left intact
+
+
