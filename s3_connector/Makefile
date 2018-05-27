@@ -15,4 +15,4 @@ test: $(OBJS)
 	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic /home/ganesha/sources/libs3/build-debug/lib/libs3.so.4	
 	
 clean: 
-	rm -f $(OBJS)
+	rm -f $(OBJS) basic
