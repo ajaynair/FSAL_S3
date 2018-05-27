@@ -305,7 +305,7 @@ void get_object(char *bucketName, char *objectName, data_pointer *data)
   data->status = 0;
  
   S3_get_object(&bucketContext, objectName, &getConditions, 0,
-                1024, NULL, 0, &getObjectHandler, (void *) data);
+                0, NULL, 0, &getObjectHandler, (void *) data);
 
   while (data->status == 0);
 }
