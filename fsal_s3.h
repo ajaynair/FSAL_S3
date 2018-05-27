@@ -6,6 +6,7 @@
 #include "abstract_mem.h"
 
 #define BUF_SIZE 1024
+
 typedef struct s3_fsal_export {
     struct fsal_export export;
 } s3_fsal_export_t;
