@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <time.h>
+#include <unistd.h>
 
 #include "s3_connector.h"
 
@@ -135,7 +137,11 @@ static void get_object_test()
   get_metadata->fp = 0;
   get_metadata->file_size = 0;
   get_metadata->metadata_count = 0;
-  get_metadata->metadata = NULL;
+  get_metadata->metadata = malloc(sizeof(dict) * 2);
+  get_metadata->metadata[0].name = malloc(6);
+  get_metadata->metadata[0].value = malloc(7);
+  get_metadata->metadata[1].name = malloc(6);
+  get_metadata->metadata[1].value = malloc(7);
   
   get_object_metadata(BUCKETNAME, put_objName, get_metadata);
   for (i = 0; i < get_metadata->metadata_count; i++) {

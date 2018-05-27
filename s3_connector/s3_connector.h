@@ -2,8 +2,8 @@
 #define __S_CONNECTOR__
 
 typedef struct {
-  const char *name;
-  const char *value;
+  char *name;
+  char *value;
 } dict;
 
 typedef struct {
