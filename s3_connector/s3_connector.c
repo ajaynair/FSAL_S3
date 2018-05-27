@@ -375,13 +375,13 @@ void init_s3_connector()
   access_key = getenv("ACCESS_KEY");
   if (!access_key) {
     printf("access_key environment variable not set\n");
-    return;
+    exit(0);
   }
 
   secret_access_key = getenv("SECRET_ACCESS_KEY");
   if (!secret_access_key) {
     printf("secret_access_key environment variable not set\n");
-    return;
+    exit(0);
   }
   current_state = INITIALIZED;
 }

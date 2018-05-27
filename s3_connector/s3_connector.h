@@ -1,8 +1,6 @@
 #ifndef __S_CONNECTOR__
 #define __S_CONNECTOR__
 
-#include "fsal_types.h"
-
 typedef struct {
   const char *name;
   const char *value;

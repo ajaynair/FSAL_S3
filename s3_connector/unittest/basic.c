@@ -1,4 +1,8 @@
 #include <sys/stat.h> 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
 
 #include "s3_connector.h"
 
