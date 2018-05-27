@@ -7,10 +7,11 @@ typedef struct {
 } dict;
 
 typedef struct {
-  FILE *fp;
+  FILE   *fp;
   size_t file_size;
-  dict *metadata; 
+  dict   *metadata; 
   size_t metadata_count; 
+  int    status;
 } data_pointer; 
 
 void get_object(char *bucketName, char *objectName, data_pointer *data);

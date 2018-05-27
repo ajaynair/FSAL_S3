@@ -44,6 +44,14 @@ static void _responseCompleteCallback(S3Status status,
                                      void *callbackData)
 {
   int i = 0;
+  data_pointer *data = callbackData;
+  
+  if (data == NULL)
+  {
+    return;
+  }
+
+  data->status = 1;
 
   if (status == S3StatusOK) {
     printf("Operation successful\n");
@@ -293,9 +301,13 @@ void get_object(char *bucketName, char *objectName, data_pointer *data)
     0,
     NULL
   };
+
+  data->status = 0;
  
   S3_get_object(&bucketContext, objectName, &getConditions, 0,
                 1024, NULL, 0, &getObjectHandler, (void *) data);
+
+  while (data->status == 0);
 }
 
 void put_object(char *bucketName, char *objectName, data_pointer *data) 
@@ -349,9 +361,13 @@ void put_object(char *bucketName, char *objectName, data_pointer *data)
     0,
     NULL
   };
+  data->status = 0;
 
   S3_put_object(&bucketContext, objectName, data->file_size, &putProperties,
                 NULL, 0, &putObjectHandler, (void *) data);
+
+  while (data->status == 0);
+  
 }
 
 /**
