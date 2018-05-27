@@ -1,6 +1,6 @@
 Following are the work to be done next:
 
-1) Create a curl library (i.e. a curl.h and a curl.c file) # Ashay
+1) Create a curl library (i.e. a curl.h and a curl.c file) # Done
 
 It should have the following functions for V1.0:
 curl_post_object(char *object_name)
@@ -8,18 +8,24 @@ curl_put_object(char *object_name)
 curl_get_object(char *object_name)
 curl_delete_object(char *object_name)
 
-2) Come up with the architecture of FSAL_S3 # Ajay
+2) Come up with the architecture of FSAL_S3 # Done
 
 Understand the working of s3fs-fuse especially the mapping of 
 files/directories to objects/directores
 
-3) Complete s3_init_config(): # Ashay/Ajay
+3) Complete s3_init_config(): # Done
 
 For V1.0, this function should initialize CURL (If required) 
 and check if the bucket exists.
 For now, bucket_name, access_key, access_secret_key can be hardcoded
 
-4) Complete s3_lookup_path(path): # Ajay
+4) Complete mkdir.c 
+
+5) Complete s3_lookup_path(path): # Ajay
 
 For V1.0, this function should get the path and check 
-if the object with that path exist 
+if the object with that path exist
+
+6) Complete setattr and getattr
+
+7) Run nfs-ganesha over FSAL_S3 
