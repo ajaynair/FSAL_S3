@@ -24,7 +24,7 @@ fsal_status_t s3_open(struct fsal_obj_handle *ffile, fsal_openflags_t fflags)
 fsal_openflags_t s3_status(struct fsal_obj_handle *ffile)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    fsal_openflags_t flags;
+    fsal_openflags_t flags = 0;
     return flags;
 }
 

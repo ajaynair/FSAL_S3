@@ -1,6 +1,7 @@
 #include <libgen.h>
 #include "fsal_s3.h"
 
+/*
 static char *_s3_mydirname(const char* path)
 {
   if(!path || '\0' == path[0]){
@@ -12,9 +13,9 @@ static char *_s3_mydirname(const char* path)
 
 static fsal_status_t _s3_check_object_access(const char *path, int mask)
 {
-    fsal_status_t st; 
-    char attr[BUF_SIZE][BUF_SIZE];
-
+    // fsal_status_t st; 
+    // char attr[BUF_SIZE][BUF_SIZE];
+    return fsalstat(ERR_FSAL_NO_ERROR, 0);
 }
 
 static fsal_status_t _s3_check_parent_object_access(const char* path, int mask)
@@ -32,11 +33,9 @@ static fsal_status_t _s3_check_parent_object_access(const char* path, int mask)
       if(strcmp(parent, ".") == 0){
         parent = "/";
       }
-      /*
       if(st == _s3_check_object_access(parent, X_OK)){
         return st;
       } 
-      */
       if(strcmp(parent, "/") == 0 || strcmp(parent, ".") == 0){
         break;
       }
@@ -49,14 +48,14 @@ static fsal_status_t _s3_check_parent_object_access(const char* path, int mask)
     if(strcmp(parent, ".") == 0){
       parent = "/";
     }
-    /*
+
     if(0 != _s3_check_object_access(parent, mask)){
       return st;
     }
-    */
   }
   return st;
 }
+*/
 
 /*
  * Function: s3_lookup
@@ -199,8 +198,20 @@ fsal_status_t s3_renamefile(struct fsal_obj_handle *fparent_old,
 fsal_status_t s3_getattrs(struct fsal_obj_handle *ffile)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    return fsalstat(ERR_FSAL_NO_ERROR, 0);
+   s3_fsal_obj_handle *shandle = NULL;
+   data_pointer *dp = NULL;
 
+   shandle = container_of(ffile, s3_fsal_obj_handle, obj_handle);
+
+   dp = calloc(1, sizeof(data_pointer));
+
+   get_metadata_count(&(dp->metadata_count));
+   dp->metadata = calloc(dp->metadata_count, sizeof(dict));
+
+   get_object_metadata(BUCKETNAME, shandle->oid, dp);
+
+    _fill_attrlist(dp->metadata, &(ffile->attributes), &(ffile->type));
+   return fsalstat(ERR_FSAL_NO_ERROR, 0);
 }
 
 /*
@@ -214,6 +225,13 @@ fsal_status_t s3_getattrs(struct fsal_obj_handle *ffile)
 fsal_status_t s3_setattrs(struct fsal_obj_handle *ffile, struct attrlist *fattrs)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
+   s3_fsal_obj_handle *shandle = NULL;
+   data_pointer *dp = NULL;
+
+   shandle = container_of(ffile, s3_fsal_obj_handle, obj_handle);
+
+   dp = calloc(1, sizeof(data_pointer));
+
     return fsalstat(ERR_FSAL_NO_ERROR, 0);
 
 }
@@ -229,7 +247,8 @@ fsal_status_t s3_setattrs(struct fsal_obj_handle *ffile, struct attrlist *fattrs
 fsal_status_t s3_file_unlink(struct fsal_obj_handle *fparent, const char *name)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    return fsalstat(ERR_FSAL_NO_ERROR, 0);
+
+   return fsalstat(ERR_FSAL_NO_ERROR, 0);
 
 
 }
@@ -237,8 +256,14 @@ fsal_status_t s3_file_unlink(struct fsal_obj_handle *fparent, const char *name)
 static fsal_status_t s3_handle_digest(const struct fsal_obj_handle *ffile,
                         fsal_digesttype_t output_type, struct gsh_buffdesc *fh_desc)
 {
+   s3_fsal_obj_handle *myself = NULL;
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    return fsalstat(ERR_FSAL_NO_ERROR, 0);
+
+   myself = container_of(ffile, s3_fsal_obj_handle, obj_handle);
+   memcpy(fh_desc->addr, myself->oid, strlen(myself->oid));
+   fh_desc->len = strlen(myself->oid);
+
+   return fsalstat(ERR_FSAL_NO_ERROR, 0);
 
 
 }
@@ -246,8 +271,9 @@ static fsal_status_t s3_handle_digest(const struct fsal_obj_handle *ffile,
 static void s3_handle_to_key(struct fsal_obj_handle *ffile, struct gsh_buffdesc *fh_desc)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-
-
+   s3_fsal_obj_handle *myself = container_of(ffile, s3_fsal_obj_handle, obj_handle);
+   fh_desc->addr = myself->oid;
+   fh_desc->len = strlen(myself->oid);
 }
 
 /*
@@ -262,30 +288,47 @@ fsal_status_t s3_lookup_path(struct fsal_export *exp_hdl,
                 const char *path, struct fsal_obj_handle **ffile)
 {
     LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    fsal_status_t st;
-  
-    st = _s3_check_parent_object_access(path, X_OK);
-    if (FSAL_IS_ERROR(st)) {
-        goto err;
-    }
+    data_pointer *dp = NULL;
+    s3_fsal_obj_handle *shandle = NULL;
+    s3_dirent *dirent = NULL; 
+    int dir_index = 0;
+    int ret = 0;
+    char name[BUF_SIZE] = {0};
 
-    st = _s3_check_object_access(path, X_OK);
-    if (FSAL_IS_ERROR(st)) {
-        goto err;
-    }
+    /* TODO Check access */
+    dp = calloc(1, sizeof(data_pointer));
+    get_metadata_count(&(dp->metadata_count));
+    dp->metadata = calloc(dp->metadata_count, sizeof(dict));   
  
-    return fsalstat(ERR_FSAL_NO_ERROR, 0);
+    get_tmp_file(&(dp->fp)); 
+    get_object(BUCKETNAME, ROOTOID, dp);
 
-err:
-    return st;
+    do {
+      ret = get_next_path_component(path, &dir_index, name);
+      find_dirent_in_file(dp->fp, name, &dirent);
+      clean_data_pointer(dp);
+
+      get_tmp_file(&(dp->fp));
+      get_object(BUCKETNAME, dirent->oid, dp);
+    } while(ret);
+
+    shandle = calloc(1, sizeof(s3_fsal_obj_handle));
+    shandle->oid = strdup(dirent->oid);
+    shandle->obj_handle.ops = exp_hdl->obj_ops;
+
+    shandle->obj_handle.fsal = exp_hdl->fsal;
+    _fill_attrlist(dp->metadata, &(shandle->obj_handle.attributes), &(shandle->obj_handle.type));
+
+    *ffile = &(shandle->obj_handle);
+
+    return fsalstat(ERR_FSAL_NO_ERROR, 0);
 }
 
 fsal_status_t s3_create_handle(struct fsal_export *exp_hdl,
                 struct gsh_buffdesc *hdl_desc, struct fsal_obj_handle **handle)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-
-    return fsalstat(ERR_FSAL_NO_ERROR, 0);
+    return fsalstat(ERR_FSAL_INVAL, EINVAL);
 }
 
 

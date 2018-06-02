@@ -1,5 +1,5 @@
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I. #-I$(GANESHASRC)/include -I$(GANESHASRC)libntirpc/ntirpc/
+IINCLUDE  = -I. -I../common/ #-I$(GANESHASRC)/include -I$(GANESHASRC)libntirpc/ntirpc/
 OBJS      = $(subst .c,.o,$(SOURCES))
 CC        = gcc -g3 -Wall -Wno-pointer-sign
 

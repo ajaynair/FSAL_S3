@@ -16,7 +16,6 @@ static const char myname[] = "S3";
     ATTR_CTIME    | ATTR_MTIME                     \
     )
 
-# define S3MAXOBJSIZE 5000000000000 
 /* TODO Check if the following values are correct for S3 */
 static struct fsal_staticfsinfo_t s3_info = {
     .maxfilesize = S3MAXOBJSIZE,
@@ -56,8 +55,6 @@ static fsal_status_t s3_init_config(struct fsal_module *fsal_hdl,
                                     config_file_t config_struct)
 {
     /* TODO Read all the following data from config file ganesha.conf */
-    char *host = "https://s3.amazonaws.com";
-    char *bucket = "nascc1"; 
 
     LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
     return fsalstat(ERR_FSAL_NO_ERROR, 0);
@@ -75,6 +72,7 @@ void fsal_init(void)
         int retval;
         struct fsal_module *myself = &S3.fsal;
 
+        init_s3_connector();
         retval = register_fsal(myself, myname, FSAL_MAJOR_VERSION,
             FSAL_MINOR_VERSION, FSAL_ID_EXPERIMENTAL);
         if (retval != 0) {
@@ -102,4 +100,5 @@ void fsal_unload(void)
                 fprintf(stderr, "S3 module failed to unregister");
                 return;
         }
+        deinit_s3_connector();
 }

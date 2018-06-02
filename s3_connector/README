@@ -1,0 +1,1 @@
+gcc -c libs3_api.c -g3 /home/ganesha/sources/libs3/build/lib/libs3.so.4 -I$GANESHASRC/include -I$GANESHASRC/libntirpc/ntirpc/

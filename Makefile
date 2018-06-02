@@ -1,6 +1,6 @@
-SUBDIRS = s3_connector cli
+SUBDIRS = common s3_connector obj_structs cli
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/
+IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/ -Is3_connector/ -Iobj_structs/ -Icommon/
 TARGET    = libfsals3.so
 DEST      = dest/
 OBJS      = $(subst .c,.o,$(SOURCES))
@@ -10,7 +10,7 @@ INSTALLDIRS = $(SUBDIRS:%=install-%)
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 BUILDDIRS = $(SUBDIRS:%=build-%)
 
-all: $(TARGET) $(BUILDDIRS)
+all: $(BUILDDIRS) $(TARGET)
 
 $(BUILDDIRS):
 	$(MAKE) -C $(@:build-%=%)
@@ -20,10 +20,10 @@ ifndef GANESHASRC
 endif
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -shared -o $(TARGET)
+	$(CC) $(OBJS) common/common.o obj_structs/obj_structs.o s3_connector/s3_connector.o -shared -o $(TARGET) -ls3
 	cp $(TARGET) $(DEST)
 
-%.o: %.c $(HEADERS) 
+%.o: %.c $(HEADERS)
 	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) -c $< -o $@
 
 clean: $(CLEANDIRS) 

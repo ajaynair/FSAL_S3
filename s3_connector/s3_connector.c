@@ -98,11 +98,12 @@ static S3Status _responsePropertiesCallback(const S3ResponseProperties *properti
 
     data->metadata = malloc(properties->metaDataCount * sizeof(struct S3NameValue));
     for (i = 0; i < properties->metaDataCount; i++) {
-        printf("%s: %s\n", properties->metaData[i].name,
-               properties->metaData[i].value);
+        //printf("%s: %s\n", properties->metaData[i].name,
+               //properties->metaData[i].value);
         data->metadata[i].name = strdup(properties->metaData[i].name);
         data->metadata[i].value = strdup(properties->metaData[i].value);
     }
+    data->metadata_count = properties->metaDataCount;
 
     return st;
 }
@@ -125,7 +126,7 @@ static S3Status _getObjectDataCallback(int bufferSize, const char *buffer,
   data_pointer *data = callbackData;
   S3Status st = S3StatusOK;
 
-  data->file_size = fwrite(buffer, 1, bufferSize, data->fp);
+  fwrite(buffer, 1, bufferSize, data->fp);
   fflush(data->fp);
 
   /* TODO Think when should the file be closed */
@@ -149,9 +150,14 @@ static int _putObjectDataCallback(int bufferSize, char *buffer,
   data_pointer *data = callbackData;
   size_t readSize = 0;
 
-  readSize = fread(buffer, 1, bufferSize, data->fp);
+  if (data->fp == NULL)
+    return 0;
 
-  /* TODO Think when should the file be closed */
+  rewind(data->fp);
+
+  readSize = fread(buffer, 1, bufferSize, data->fp);
+  //printf("Read from file size=%zu\n", readSize);
+
   return readSize;     
 }
 
@@ -159,7 +165,7 @@ static int _putObjectDataCallback(int bufferSize, char *buffer,
 void delete_object(char *bucketName, char *objName)
 {
   if (current_state != INITIALIZED) {
-    printf("Module not initialized\n");
+    //printf("Module not initialized\n");
     return;
   }
 
@@ -187,7 +193,7 @@ void delete_object(char *bucketName, char *objName)
 void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
 {
   if (current_state != INITIALIZED) {
-    printf("Module not initialized\n");
+    //printf("Module not initialized\n");
     return;
   }
 
@@ -249,7 +255,7 @@ void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
 void get_object_metadata(char *bucketName, char *objName, data_pointer *data)
 {
   if (current_state != INITIALIZED) {
-    printf("Module not initialized\n");
+    //printf("Module not initialized\n");
     return;
   }
 
@@ -312,8 +318,10 @@ void get_object(char *bucketName, char *objectName, data_pointer *data)
 
 void put_object(char *bucketName, char *objectName, data_pointer *data) 
 {
+  size_t filesize = 0;  
+
   if (current_state != INITIALIZED) {
-    printf("Module not initialized\n");
+    //printf("Module not initialized\n");
     return;
   }
 
@@ -363,7 +371,16 @@ void put_object(char *bucketName, char *objectName, data_pointer *data)
   };
   data->status = 0;
 
-  S3_put_object(&bucketContext, objectName, data->file_size, &putProperties,
+  if (data->fp != NULL) { 
+    fseek(data->fp, 0L, SEEK_END);
+    filesize = ftell(data->fp);
+    rewind(data->fp);
+  }
+  else {
+    filesize = 0;
+  }
+
+  S3_put_object(&bucketContext, objectName, filesize, &putProperties,
                 NULL, 0, &putObjectHandler, (void *) data);
 
   while (data->status == 0);
@@ -383,20 +400,20 @@ void init_s3_connector()
   /* Initialize libs3 */
   st = S3_initialize("s3", S3_INIT_ALL, NULL);
   if (st != S3StatusOK) {
-    printf("S3)initialize failed!");
+    //printf("S3)initialize failed!");
     return;
   }
 
   /* Read Amazon S3 access key and secret access key from environment variables */
   access_key = getenv("ACCESS_KEY");
   if (!access_key) {
-    printf("access_key environment variable not set\n");
+    //printf("access_key environment variable not set\n");
     exit(0);
   }
 
   secret_access_key = getenv("SECRET_ACCESS_KEY");
   if (!secret_access_key) {
-    printf("secret_access_key environment variable not set\n");
+    //printf("secret_access_key environment variable not set\n");
     exit(0);
   }
   current_state = INITIALIZED;

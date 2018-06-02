@@ -1,14 +1,10 @@
 #ifndef __S_CONNECTOR__
 #define __S_CONNECTOR__
 
-typedef struct {
-  const char *name;
-  const char *value;
-} dict;
+#include "common.h"
 
 typedef struct {
   FILE   *fp;
-  size_t file_size;
   dict   *metadata; 
   size_t metadata_count; 
   int    status;
@@ -23,6 +19,12 @@ void get_object_metadata(char *bucketName, char *objName, data_pointer *data);
 void put_object_metadata(char *bucketName, char *objName, data_pointer *data);
 
 void delete_object(char *bucketName, char *objName);
+
+void static inline clean_data_pointer(data_pointer *dp)
+{
+    fclose(dp->fp);
+    dp->fp = NULL;
+}
 
 /**
  * @brief Initialize s3_connector.

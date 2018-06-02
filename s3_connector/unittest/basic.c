@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <time.h>
 #include <sys/stat.h> 
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,6 +15,15 @@
 #define FILENAME_LEN   10
 #define TMPDIR         "/tmp/fsals3_test/"
 #define RETRIES        100
+
+static void _get_file_size(char *filepath, size_t *size) {
+  FILE *fp = NULL;
+
+  fp = fopen(filepath, "r");
+  fseek(fp, 0L, SEEK_END);
+  *size = ftell(fp);
+  fclose(fp);
+}
 
 static void _create_random_string(char *string, unsigned length)
 {
@@ -82,7 +93,7 @@ static void _create_rand_file(char filepath[PATH_LEN])
 static void get_object_test()
 {
   char put_objName[PATH_LEN] = {0};
-  char put_filepath[PATH_LEN] = {0};
+  char put_filepath[PATH_LEN] = "basic";
   char get_filepath[PATH_LEN] = {0};
   data_pointer *put_data = malloc(sizeof(data_pointer));
   data_pointer *get_data = malloc(sizeof(data_pointer));
@@ -99,10 +110,11 @@ static void get_object_test()
   _create_random_string(put_objName, PATH_LEN);
   printf("Creating object %s\n", put_objName);
 
-  _create_rand_file(put_filepath);
+  //_create_rand_file(put_filepath);
   
-  _write_data(put_filepath, TESTSTR, &put_size);
+  //_write_data(put_filepath, TESTSTR, &put_size);
 
+  _get_file_size(put_filepath, &put_size);
   put_fp = fopen(put_filepath, "r");
   put_data->metadata = NULL;
   put_data->metadata_count = 0;
