@@ -96,7 +96,6 @@ static S3Status _responsePropertiesCallback(const S3ResponseProperties *properti
         return st;
     }
 
-    data->metadata = malloc(properties->metaDataCount * sizeof(struct S3NameValue));
     for (i = 0; i < properties->metaDataCount; i++) {
         //printf("%s: %s\n", properties->metaData[i].name,
                //properties->metaData[i].value);
@@ -229,7 +228,7 @@ void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
 
   S3ResponseHandler responseHandler =
   {
-    _responsePropertiesCallback,
+    &_responsePropertiesCallback,
     &_responseCompleteCallback
   };
 

@@ -13,6 +13,7 @@
  * status - A (temporary) variable used to make the async libs3 calls 
  *           sync (Only part of the POC) 
  */
+
 typedef struct {
   FILE   *fp;
   dict   *metadata; 
