@@ -1,1 +1,3 @@
-gcc -c libs3_api.c -g3 /home/ganesha/sources/libs3/build/lib/libs3.so.4 -I$GANESHASRC/include -I$GANESHASRC/libntirpc/ntirpc/
+The s3_connector is used to connect to Amazon S3. Internally it uses 
+libs3
+
