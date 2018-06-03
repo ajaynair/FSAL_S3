@@ -19,7 +19,7 @@ typedef struct  {
 ```
 
 A directory entry in an object is stored in string format as:
-** <magic-string><separator><filename><separator><object-id><separator><magic-string><separator> **
+__<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>__
 
 Where:
   magic-string is "s3magic"
@@ -50,7 +50,7 @@ For the example let's assume the following mapping:
  ---------------------------
 
 Data in object with object-id 0 (i.e. object corresponding to file '/'):
-  ** s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@ **
+  __ s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@ __
 
 Data in object with object-id 1111:
   **s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@**
