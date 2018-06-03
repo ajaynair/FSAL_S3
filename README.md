@@ -1,11 +1,14 @@
-# H1 FSAL-S3 - A NFS-Ganesha FSAL for Amazon S3 (v0.1)
+# FSAL-S3 - A NFS-Ganesha FSAL for Amazon S3 (v0.1)
 
-. NFS-Ganesha with FSAL-S3 uses Amazon S3 as a backed for NFS.
+## NFS-Ganesha with FSAL-S3 uses Amazon S3 as a backed for NFS.
 
-. Each NFS filetype has a corresponding Amazon S3 object to store its data
-. Regular file data is stored as it is to an object correspoding to it
-. Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it
-. Note that the current implementation only supports regular files and directories
+### Explanation
+
+Each NFS filetype has a corresponding Amazon S3 object to store its data.
+Regular file data is stored as it is to an object correspoding to it.
+Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
+
+#### Note that the current implementation only supports regular files and directories
 
 Directory entry data structure:
 ```c
@@ -16,7 +19,7 @@ typedef struct  {
 ```
 
 A directory entry in an object is stored in string format as:
-<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>
+**<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>**
 
 Where:
   magic-string is "s3magic"
@@ -49,10 +52,10 @@ For the example let's assume the following mapping:
  ---------------------------
 
 Data in object with object-id 0 (i.e. object corresponding to file '/'):
-  s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@
+  **s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@**
 
 Data in object with object-id 1111:
-  s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@
+  **s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@**
 
 Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
 -----------------------------------------------------------------------------------------------
