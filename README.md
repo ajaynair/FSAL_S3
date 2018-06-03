@@ -4,9 +4,9 @@
 
 ### Explanation
 
-Each NFS filetype has a corresponding Amazon S3 object to store its data.
-Regular file data is stored as it is to an object correspoding to it.
-Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
+1. Each NFS filetype has a corresponding Amazon S3 object to store its data.
+  * Regular file data is stored as it is to an object correspoding to it.
+  * Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
 
 #### Note that the current implementation only supports regular files and directories
 
