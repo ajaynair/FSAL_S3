@@ -26,7 +26,6 @@ Where:
   separator is "@"
 
 Detailed example
------------------------------------------------------------------------------------------------
 Consider the following directory structure:
     
                         / 
@@ -40,7 +39,6 @@ Consider the following directory structure:
 The Amazon S3 will contain 5 objects, 1 each for '/', 'dir11', 'dir12', dir21' and 'file22'
 
 For the example let's assume the following mapping:
-
  ---------------------------
 |     file     | object-id  |
  --------------|------------
@@ -57,5 +55,4 @@ Data in object with object-id 0 (i.e. object corresponding to file '/'):
 Data in object with object-id 1111:
   **s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@**
 
-Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
------------------------------------------------------------------------------------------------
+#### Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
