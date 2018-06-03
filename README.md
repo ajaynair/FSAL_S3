@@ -8,10 +8,12 @@ FSAL-S3 - A NFS-Ganesha FSAL for Amazon S3 (v0.1)
 . Note that the current implementation only supports regular files and directories
 
 Directory entry data structure:
+```c
 typedef struct  {
   char *filename;
   char *oid;
 } s3_dirent;
+```
 
 A directory entry in an object is stored in string format as:
 <magic-string><separator><filename><separator><object-id><separator><magic-string><separator>
@@ -38,7 +40,7 @@ For the example let's assume the following mapping:
 
  ---------------------------
 |     file     | object-id  |
- ---------------------------
+ --------------|------------
 |      /       |      0     |
 |   /dir11     |     1111   |
 |   /dir12     |     1112   |
