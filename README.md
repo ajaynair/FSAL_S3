@@ -141,7 +141,7 @@ typedef struct {
 `Note that `data_pointer` does not store file_size as file size can be calculated using fp`
 
 ##### APIs
-**Gets an object(with its data and metadata) from Amazon S3**
+**Gets an object(with its data and metadata) from Amazon S3**\
 `int get_object(char *bucketName, char *objectName, data_pointer *data)`\
   bucketName [in]:  Name of the bucket in which the object to be retrieved is present\
   objectName [in]:  Name of the object to be retrieved\
