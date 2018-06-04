@@ -15,6 +15,9 @@ static void _print_help()
     exit(0);
 }
 
+/* TODO: 1) Return int 
+ *       2) avoid strcpy
+*/
 static void _mkdir_p(char *dir_path) 
 {
     int ret = 0;
@@ -32,6 +35,7 @@ static void _mkdir_p(char *dir_path)
     get_metadata_count(&(dp->metadata_count));
     set_default_metadata(&(dp->metadata), DIRECTORY_T, ROOTOID);
 
+    /* TODO: Put object should check if fp is null and if it is NULL create an empty object */
     put_object(BUCKETNAME, ROOTOID, dp);
     clean_data_pointer(dp);
 
@@ -72,6 +76,7 @@ int main(int argc, char **argv)
     if (argc != 2)
         _print_help();
 
+    /* TODO: Sanity check */
     if (dir_path[0] != '/') {
         printf("Directory name should start with '/'");
         return 0;

@@ -19,6 +19,7 @@ void pack_dirent(char filename[], char oid[], s3_dirent **dirent)
 
 // void get_dirent(s3_dirent *dirent, char filename[], char oid[]);
 
+/* TODO: Use sprintf */
 void dirent_to_str(s3_dirent *dirent, char dirent_str[])
 {
   strcpy(dirent_str, MAGIC);
@@ -98,6 +99,7 @@ void next_dirent_from_file(FILE *fp, s3_dirent **dirent)
     pack_dirent(filename, oid, dirent);
 }
 
+/* TODO: Each fp manipulating fucntion should set fp at correct position */
 void find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)
 {
   s3_dirent *_dirent = NULL;
@@ -115,6 +117,7 @@ void find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)
   }
 }
 
+/* TODO: Create macros for default values */
 int set_default_metadata(dict **metadata, char filetype[], char fileid[])
 {
     dict *_metadata = NULL;
@@ -122,9 +125,6 @@ int set_default_metadata(dict **metadata, char filetype[], char fileid[])
     char cur_time_str[BUF_SIZE] = { 0 };
 
     _metadata = calloc(METADATACOUNT, sizeof(dict));
-
-    clock_gettime(CLOCK_REALTIME, &(cur_time));
-    sprintf(cur_time_str, "%ld.%ld", cur_time.tv_sec, cur_time.tv_nsec);
 
     _metadata[0].name = strdup(FILETYPE);
     _metadata[0].value = strdup(filetype);
@@ -149,6 +149,9 @@ int set_default_metadata(dict **metadata, char filetype[], char fileid[])
 
     _metadata[7].name = strdup(GROUP);
     _metadata[7].value = strdup("1000");
+
+    clock_gettime(CLOCK_REALTIME, &(cur_time));
+    sprintf(cur_time_str, "%ld.%ld", cur_time.tv_sec, cur_time.tv_nsec);
 
     _metadata[8].name = strdup(ATIME);
     _metadata[8].value = strdup(cur_time_str);

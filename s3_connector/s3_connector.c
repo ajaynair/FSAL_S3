@@ -160,6 +160,13 @@ static int _putObjectDataCallback(int bufferSize, char *buffer,
   return readSize;     
 }
 
+void static inline _clean_data_pointer(data_pointer *dp)
+{
+    fclose(dp->fp);
+    dp->fp = NULL;
+}
+
+
 /* Section 2: API functions */
 void delete_object(char *bucketName, char *objName)
 {
@@ -191,6 +198,7 @@ void delete_object(char *bucketName, char *objName)
 
 void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
 {
+  /* TODO: Create inline function for this */
   if (current_state != INITIALIZED) {
     //printf("Module not initialized\n");
     return;

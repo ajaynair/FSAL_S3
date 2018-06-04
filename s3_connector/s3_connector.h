@@ -21,6 +21,7 @@ typedef struct {
   int    status;
 } data_pointer; 
 
+/* TODO: All the fuctions should return some status */
 void get_object(char *bucketName, char *objectName, data_pointer *data);
 
 void put_object(char *bucketName, char *objectName, data_pointer *data); 
@@ -30,12 +31,6 @@ void delete_object(char *bucketName, char *objName);
 void get_object_metadata(char *bucketName, char *objName, data_pointer *data);
 
 void put_object_metadata(char *bucketName, char *objName, data_pointer *data);
-
-void static inline clean_data_pointer(data_pointer *dp)
-{
-    fclose(dp->fp);
-    dp->fp = NULL;
-}
 
 /**
  * @brief Initialize s3_connector.
