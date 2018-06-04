@@ -5,27 +5,19 @@
 ### Explanation
 
 1. Each NFS filetype has a corresponding Amazon S3 object to store its data.
-  * Regular file data is stored as it is to an object correspoding to it.
-  * Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
+  *  Regular file data is stored as it is to an object correspoding to it.
+  *  Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
 
 ##### Note that the current implementation only supports regular files and directories
-
-Directory entry data structure:
-```c
-typedef struct  {
-  char *fileName;
-  char *objectName;
-} s3_dirent;
-```
 
 A directory entry in an object is stored in string format as:
 `<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>`
 
 Where:
   magic-string is `"s3magic"`
-  separator is `"@"`
+  separator is `'@'`
 
-Detailed example
+Detailed example: 
 Consider the following directory structure:
     
                         / 
@@ -50,10 +42,10 @@ For the example let's assume the following mapping:
 |/dir11/file22 |     1114   |
  ---------------------------
 
-Data in object with object-id 0 (i.e. object corresponding to file '/'):
+Data in object with object-id 0 (i.e. object corresponding to directory `'/'`):
   `s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@`
 
-Data in object with object-id 1111:
+Data in object with object-id `1111`:
   `s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@`
 
 ##### Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
@@ -96,18 +88,18 @@ A very very brief introduction to the source code directory structures:
 1) s3-connector can be used by its caller (FSAL-S3 in our case) to connect to Amazon S3 and manipulate S3 object data.
 
 2) s3-connector uses a local file to:
-  . Store object data during Get operation
-  . Retrieve object data during Put operation
+  .  Store object data during Get operation
+  .  Retrieve object data during Put operation
 
 3) When the caller wants to Put(create) an object on Amazon S3 it should:
-  . Create a temporary file
-  . Write the intended object data to the file
-  . Pass the file pointer to s3-connector with read access
+  .  Create a temporary file
+  .  Write the intended object data to the file
+  .  Pass the file pointer to s3-connector with read access
 s3-connector will read data from the file and store it in the Amazon S3 object
 
 3) When the caller wants to Get(read) an object from Amazon S3 it should:
-  . Create a temporary file
-  . Pass the file pointer to s3-connector with write access
+  .  Create a temporary file
+  .  Pass the file pointer to s3-connector with write access
 s3-connector will write data from the object to the file
 
 #### Data structures
@@ -207,7 +199,7 @@ Other static values
 #define OIDLEN        20               /* Maximum length of the object ID */
 #define ROOTOID       "0"              /* OID of object corresponding to '/' */
 #define BUCKETNAME    "fsals3bucket"   /* Name of the Amazon S3 bucket to be used */
-#define MAGIC         "FSALS3MAGICSTR" /* A string used in dirents in string format */
+#define MAGIC         "s3magic"        /* A string used in dirents in string format */
 #define SEPARATOR     '@'              /* Separator to separate members of dirent in string format */
 #define S3MAXOBJSIZE  999999           /* Maximum object size supported. Current a large random value */
 ```
@@ -328,7 +320,7 @@ typedef struct {
                                            \|/  
                                           __   _
                                         _(  )_( )_
-                                       (AmazonS3 _)
+                                       (_AmazonS3_)
                                          (_) (__)
 
 TODO:  
