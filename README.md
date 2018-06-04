@@ -128,31 +128,36 @@ typedef struct {
 `Note that `data_pointer` does not store file_size as file size can be calculated using fp`
 
 ##### APIs
-`int get_object(char *bucketName, char *objectName, data_pointer *data)`
 Gets an object(with its data and metadata) from Amazon S3.
+
+`int get_object(char *bucketName, char *objectName, data_pointer *data)`
   bucketName [in]:  Name of the bucket in which the object to be retrieved is present
   objectName [in]:  Name of the object to be retrieved
   data       [out]: data_pointer in which the data of the object will be stored  
 
-`int put_object(char *bucketName, char *objectName, data_pointer *data)`
 Puts an object(with its data and metadata) on Amazon S3.
+
+`int put_object(char *bucketName, char *objectName, data_pointer *data)`
   bucketName [in]: Name of the bucket in which the object to be retrieved is present
   objectName [in]: Name of the object to be retrieved
   data:      [in]: data_pointer in which the data of the object to be put is stored  
 
-`int delete_object(char *bucketName, char *objName)`
 Delete an object from Amazon S3
+
+`int delete_object(char *bucketName, char *objName)`
   bucketName [in]: Name of the bucket in which the object to be deleted is present
   objectName [in]: Name of the object to be deleted
 
-`int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`
 Gets object metadata from Amazon S3.
-  bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present
-  objectName [in]:  Name of the object whose metadata is to be retrieved
-  data       [out]: data_pointer in which the metadata of the object will be stored  
+
+`int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`
+\  bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present\
+\  objectName [in]:  Name of the object whose metadata is to be retrieved\
+\  data       [out]: data_pointer in which the metadata of the object will be stored\
+
+Put object metadata from Amazon S3.
 
 `int put_object_metadata(char *bucketName, char *objName, data_pointer *data)`
-Put object metadata from Amazon S3.
   bucketName [in]:  Name of the bucket in which the object whose metadata is to be put is present
   objectName [in]:  Name of the object whose metadata is to be put
   data       [in]: data_pointer in which the metadata of the object to be put is stored 
@@ -164,6 +169,7 @@ s3-structures defines the structure of the data to be stored in Amazon S3
 ##### Data structures
 
 Directory entry data structure. 
+
 Each directory has a list of dirent (in string format) stored in it, one for each file within the directory:
 ```c
 typedef struct  {
