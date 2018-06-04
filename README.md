@@ -10,14 +10,14 @@
 
 ##### Note that the current implementation only supports regular files and directories
 
-A directory entry in an object is stored in string format as:
+A directory entry in an object is stored in string format as:\
 `<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>`
 
-Where:
+Where:\
   - magic-string is `"s3magic"`
   - separator is `'@'`
 
-Detailed example: 
+Detailed example:\
 Consider the following directory structure:
     
                         / 
@@ -42,10 +42,10 @@ For the example let's assume the following mapping:
 |/dir11/file22 |     1114   |
  ---------------------------
 
-Data in object with object-id 0 (i.e. object corresponding to directory `'/'`):
+Data in object with object-id 0 (i.e. object corresponding to directory `'/'`):\
   `s3magic@dir11@1111@s3magic@s3magic@dir12@1112@s3magic@`
 
-Data in object with object-id `1111`:
+Data in object with object-id `1111`:\
   `s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@`
 
 ##### Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
@@ -128,39 +128,34 @@ typedef struct {
 `Note that `data_pointer` does not store file_size as file size can be calculated using fp`
 
 ##### APIs
-Gets an object(with its data and metadata) from Amazon S3.
+Gets an object(with its data and metadata) from Amazon S3\
+`int get_object(char *bucketName, char *objectName, data_pointer *data)`\
+  bucketName [in]:  Name of the bucket in which the object to be retrieved is present\
+  objectName [in]:  Name of the object to be retrieved\
+  data       [out]: data_pointer in which the data of the object will be stored\
 
-`int get_object(char *bucketName, char *objectName, data_pointer *data)`
-  bucketName [in]:  Name of the bucket in which the object to be retrieved is present
-  objectName [in]:  Name of the object to be retrieved
-  data       [out]: data_pointer in which the data of the object will be stored  
+Puts an object(with its data and metadata) on Amazon S3\
+`int put_object(char *bucketName, char *objectName, data_pointer *data)`\
+  bucketName [in]: Name of the bucket in which the object to be retrieved is present\
+  objectName [in]: Name of the object to be retrieved\
+  data:      [in]: data_pointer in which the data of the object to be put is stored\
 
-Puts an object(with its data and metadata) on Amazon S3.
+Delete an object from Amazon S3\
+`int delete_object(char *bucketName, char *objName)`\
+  bucketName [in]: Name of the bucket in which the object to be deleted is present\
+  objectName [in]: Name of the object to be deleted\
 
-`int put_object(char *bucketName, char *objectName, data_pointer *data)`
-  bucketName [in]: Name of the bucket in which the object to be retrieved is present
-  objectName [in]: Name of the object to be retrieved
-  data:      [in]: data_pointer in which the data of the object to be put is stored  
-
-Delete an object from Amazon S3
-
-`int delete_object(char *bucketName, char *objName)`
-  bucketName [in]: Name of the bucket in which the object to be deleted is present
-  objectName [in]: Name of the object to be deleted
-
-Gets object metadata from Amazon S3.
-
+Gets object metadata from Amazon S3.\
 `int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`\
-  bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present
-  objectName [in]:  Name of the object whose metadata is to be retrieved
-  data       [out]: data_pointer in which the metadata of the object will be stored
+  bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present\
+  objectName [in]:  Name of the object whose metadata is to be retrieved\
+  data       [out]: data_pointer in which the metadata of the object will be stored\
 
-Put object metadata from Amazon S3.
-
-`int put_object_metadata(char *bucketName, char *objName, data_pointer *data)`
-  bucketName [in]:  Name of the bucket in which the object whose metadata is to be put is present
-  objectName [in]:  Name of the object whose metadata is to be put
-  data       [in]: data_pointer in which the metadata of the object to be put is stored 
+Put object metadata from Amazon S3.\
+`int put_object_metadata(char *bucketName, char *objName, data_pointer *data)`\
+  bucketName [in]:  Name of the bucket in which the object whose metadata is to be put is present\
+  objectName [in]:  Name of the object whose metadata is to be put\
+  data       [in]: data_pointer in which the metadata of the object to be put is stored\
 
 #### s3-structures
 
@@ -168,8 +163,7 @@ s3-structures defines the structure of the data to be stored in Amazon S3
 
 ##### Data structures
 
-Directory entry data structure. 
-
+Directory entry data structure\ 
 Each directory has a list of dirent (in string format) stored in it, one for each file within the directory:
 ```c
 typedef struct  {
@@ -178,7 +172,7 @@ typedef struct  {
 } dirent;
 ```
 
-Metadata name data structure:
+Metadata name data structure\
 Metadata are stored in an object in name-value pairs. The metadata_names define the names of the metadata. Note that each object has exactly `METADATA_COUNT` count of metadata.
 
 ```c
@@ -200,8 +194,8 @@ typedef enum {
 } metadata_name;
 ```
 
-Data structure for metadata value of 'FILETYPE' metadata
-Filetype data structure:
+Data structure for metadata value of 'FILETYPE' metadata\
+Filetype data structure:\
 ```c
 typedef enum {
   REGULARFILE,
@@ -222,86 +216,86 @@ Other static values
 ```
 
 ##### APIs
-Pack file name and object name to create a dirent
-`int pack_dirent(char fileName[], char objectName[], s3_dirent **dirent)`
-  fileName   [in]:  Name of the file  
-  objectName [in]:  Name of the object which stores the data of the file 
-  dirent     [out]: dirent structure to be packed 
+Pack file name and object name to create a dirent\
+`int pack_dirent(char fileName[], char objectName[], s3_dirent **dirent)`\
+  fileName   [in]:  Name of the file\
+  objectName [in]:  Name of the object which stores the data of the file\
+  dirent     [out]: dirent structure to be packed\
 
-Unpack a dirent to get file name and object name
-`int unpack_dirent(s3_dirent *dirent, char fileName[], char objectName[])`
-  dirent     [in]:   dirent to unpack 
-  fileName   [out]:  Name of the file
-  objectName [out]:  Name of the object which stores the data of the file  
+Unpack a dirent to get file name and object name\
+`int unpack_dirent(s3_dirent *dirent, char fileName[], char objectName[])`\
+  dirent     [in]:   dirent to unpack\
+  fileName   [out]:  Name of the file\
+  objectName [out]:  Name of the object which stores the data of the file\
 
-Converts the dirent to string and appends it to the file
-`int append_dirent_to_file(FILE *fp, struct *dirent)`
-  dirent  [in]:   dirent to unpack 
-  fp      [in]:   File pointer of file on which the dirent is to be appended 
+Converts the dirent to string and appends it to the file\
+`int append_dirent_to_file(FILE *fp, struct *dirent)`\
+  dirent  [in]:   dirent to unpack\
+  fp      [in]:   File pointer of file on which the dirent is to be appended\
 
-Read next dirent from the file starting from the current fp position
-`int read_next_dirent_from_file(FILE *fp, s3_dirent **dirent)`
-  fp       [in]:  File pointer of file on which the the next dirent is to be read
-  dirent   [out]: dirent strucute in which the next dirent will be filled
+Read next dirent from the file starting from the current fp position\
+`int read_next_dirent_from_file(FILE *fp, s3_dirent **dirent)`\
+  fp       [in]:  File pointer of file on which the the next dirent is to be read\
+  dirent   [out]: dirent strucute in which the next dirent will be filled\
 
-Search the file to find the dirent with particular filename
-`int find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)`
-  fp       [in]:  File pointer of file which is to be searched 
-  fileName [in]:  Filename to be searched in the dirent
-  dirent   [out]: dirent structure to be filled
+Search the file to find the dirent with particular filename\
+`int find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)`\
+  fp       [in]:  File pointer of file which is to be searched\
+  fileName [in]:  Filename to be searched in the dirent\
+  dirent   [out]: dirent structure to be filled\
 
-Set dict with default metadata names and values. 
-Note that the values to be filled for Filetype and FileId are provided as parameter. For all other metadata default values are used.
-`int set_default_metadata(char fileType[], char fileId[], dict metadata[])`
-  fileType [in]:   Value of file type to be stored in the metadata array
-  fileId   [in]:   Value of File Id to be stored in the metadata arrat
-  dict     [out]:  An array of metadata on which the default metadata name and value will be stored 
+Set dict with default metadata names and values\ 
+Note that the values to be filled for Filetype and FileId are provided as parameter. For all other metadata default values are used\
+`int set_default_metadata(char fileType[], char fileId[], dict metadata[])`\
+  fileType [in]:   Value of file type to be stored in the metadata array\
+  fileId   [in]:   Value of File Id to be stored in the metadata array\
+  dict     [out]:  An array of metadata on which the default metadata name and value will be stored\
 
-Replace the metadata of name 'mname' with 'mvalue'
-`void replace_metadata_value(dict metadata[], char mname[], char mvalue[])`
-  metadata [in]: The array of metadata
-  mname    [in]: The name of metadata whose value is to be changed
-  mvalue   [in]: The new value of the metadata
+Replace the metadata of name 'mname' with 'mvalue'\
+`void replace_metadata_value(dict metadata[], char mname[], char mvalue[])`\
+  metadata [in]: The array of metadata\
+  mname    [in]: The name of metadata whose value is to be changed\
+  mvalue   [in]: The new value of the metadata\
 
-Get the metadata value of metadata name 'mname'
-`void get_metadata_value(dict metadata[], char mname[], char mvalue[])`
-  metadata [in]:  The array of metadata
-  mname    [in]:  The name of metadata whose value is to be retrieved
-  mvalue   [out]: The value of the metadata
+Get the metadata value of metadata name 'mname'\
+`void get_metadata_value(dict metadata[], char mname[], char mvalue[])`\
+  metadata [in]:  The array of metadata\
+  mname    [in]:  The name of metadata whose value is to be retrieved\
+  mvalue   [out]: The value of the metadata\
 
-Get the count of metadata
-`void get_metadata_count(size_t *count)`
-count [out]: The number of metadata supported.
+Get the count of metadata\
+`void get_metadata_count(size_t *count)`\
+count [out]: The number of metadata supported.\
 
-Increment filesize metadata by the given value
-`void inc_filesize_metadata(dict metadata[], size_t inc_val)`
-  metadata [in]:  The array of metadata
-  inc_val  [in]:  The value by which the filesize is to be increased 
+Increment filesize metadata by the given value\
+`void inc_filesize_metadata(dict metadata[], size_t inc_val)`\
+  metadata [in]:  The array of metadata\
+  inc_val  [in]:  The value by which the filesize is to be increased\
 
 ##### Important static(non-API) function
-Converts dirent structure to the string format
-`static int _dirent_to_str(s3_dirent *dirent, char dirent_str[])`
-  dirent     [in]:  dirent structure to be converted
-  dirent_str [out]: dirent in string format
+Converts dirent structure to the string format\
+`static int _dirent_to_str(s3_dirent *dirent, char dirent_str[])`\
+  dirent     [in]:  dirent structure to be converted\
+  dirent_str [out]: dirent in string format\
 
-Converts dirent in string format to s3-dirent structure
-`static int _str_to_dirent(char dirent_str[], s3_dirent *dirent)`
-  dirent_str [in]:  dirent in string format
-  dirent     [out]: dirent structure to be created
+Converts dirent in string format to s3-dirent structure\
+`static int _str_to_dirent(char dirent_str[], s3_dirent *dirent)`\
+  dirent_str [in]:  dirent in string format\
+  dirent     [out]: dirent structure to be created\
 
 #### CLI
 Before a directory is exported by an NFS server it needs to be created. i.e. creation of the directory to be exported is to be handled outside of NFS-Ganesha. The CLIs provide a way to manipulate files and directories with the backend as Amazon S3. 
 
 Current CLIs supported are:
 1) mkdir_p
-Format: `mkdir_p <directory path>
+Format: `mkdir_p <directory path>\
 Functionally mkdir_p is similar to mkdir with the '-p' option. It creates directories recursively on Amazon S3.
 
 #### Common
 common provides generic structures and functions that are shared by multiple modules.
 
+##### Data structures
 struct dict is defined in common
-Data structures
 ```c
 typedef struct {
   char *name;
