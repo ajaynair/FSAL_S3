@@ -5,8 +5,8 @@
 ### Explanation
 
 1. Each NFS filetype has a corresponding Amazon S3 object to store its data.
-  *  Regular file data is stored as it is to an object correspoding to it.
-  *  Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
+   - Regular file data is stored as it is to an object correspoding to it.
+   - Directory entries are stored as a list of dirents(Explained below) in an object corresponding to it.
 
 ##### Note that the current implementation only supports regular files and directories
 
@@ -14,8 +14,8 @@ A directory entry in an object is stored in string format as:
 `<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>`
 
 Where:
-  magic-string is `"s3magic"`
-  separator is `'@'`
+  - magic-string is `"s3magic"`
+  - separator is `'@'`
 
 Detailed example: 
 Consider the following directory structure:
@@ -88,18 +88,18 @@ A very very brief introduction to the source code directory structures:
 1) s3-connector can be used by its caller (FSAL-S3 in our case) to connect to Amazon S3 and manipulate S3 object data.
 
 2) s3-connector uses a local file to:
-  .  Store object data during Get operation
-  .  Retrieve object data during Put operation
+   - Store object data during Get operation
+   - Retrieve object data during Put operation
 
 3) When the caller wants to Put(create) an object on Amazon S3 it should:
-  .  Create a temporary file
-  .  Write the intended object data to the file
-  .  Pass the file pointer to s3-connector with read access
+   - Create a temporary file
+   - Write the intended object data to the file
+   - Pass the file pointer to s3-connector with read access
 s3-connector will read data from the file and store it in the Amazon S3 object
 
 3) When the caller wants to Get(read) an object from Amazon S3 it should:
-  .  Create a temporary file
-  .  Pass the file pointer to s3-connector with write access
+   - Create a temporary file
+   - Pass the file pointer to s3-connector with write access
 s3-connector will write data from the object to the file
 
 #### Data structures
