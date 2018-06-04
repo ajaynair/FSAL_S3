@@ -150,7 +150,7 @@ Delete an object from Amazon S3
 
 Gets object metadata from Amazon S3.
 
-`int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`  \n
+`int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`\
   bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present
   objectName [in]:  Name of the object whose metadata is to be retrieved
   data       [out]: data_pointer in which the metadata of the object will be stored
