@@ -26,7 +26,7 @@ Ujjwal Lanjewar, Ajay Nair, Ashay Shirwadkar
 A directory entry in an object is stored in string format as:\
 `<magic-string><separator><filename><separator><object-id><separator><magic-string><separator>`
 
-Where:\
+Where:
   - magic-string is `"s3magic"`
   - separator is `'@'`
 
@@ -97,14 +97,14 @@ A very very brief introduction to the source code directory structures:
  ------------------------------------------------------------------------------------------------------
 
 ### Components
-The source code consists mainly of 4 components. Each of them have been explained below.
+The source code consists mainly of 5 components. Each of them have been explained below.
 - s3-connector
 - s3-structures
 - CLI
 - FSAL-S3
 - common
 
-#### s3-connector
+### s3-connector
 
 1) s3-connector can be used by its caller (FSAL-S3 in our case) to connect to Amazon S3 and manipulate S3 object data.
 
@@ -170,7 +170,7 @@ typedef struct {
   objectName [in]:  Name of the object whose metadata is to be put\
   data       [in]: data_pointer in which the metadata of the object to be put is stored
 
-#### s3-structures
+### s3-structures
 
 s3-structures defines the structure of the data to be stored in Amazon S3
 
@@ -296,7 +296,7 @@ count [out]: The number of metadata supported.
   dirent_str [in]:  dirent in string format\
   dirent     [out]: dirent structure to be created
 
-#### CLI
+### CLI
 Before a directory is exported by an NFS server it needs to be created. i.e. creation of the directory to be exported is to be handled outside of NFS-Ganesha. The CLIs provide a way to manipulate files and directories with the backend as Amazon S3. 
 
 Current CLIs supported are:
@@ -304,7 +304,7 @@ Current CLIs supported are:
 Format: `mkdir_p \<directory path\>'
 Functionally mkdir_p is similar to mkdir with the '-p' option. It creates directories recursively on Amazon S3.
 
-#### Common
+### Common
 common provides generic structures and functions that are shared by multiple modules.
 
 ##### Data structures
