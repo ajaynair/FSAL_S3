@@ -2,6 +2,19 @@
 
 ## NFS-Ganesha with FSAL-S3 uses Amazon S3 as a backed for NFS.
 
+### Quick start
+- Get NFS-Ganesha source code\ 
+git clone --recursive https://github.com/nfs-ganesha/nfs-ganesha
+- Install libs3\
+sudo yum install libs3-devel
+- Get FSAL-S3 source code
+git clone https://github.com/ajaynair/FSAL_S3.git
+- cd FSAL_S3
+- make
+- sudo make install
+- Modify NFS-Ganesha configuration file to use FSAL-S3
+- Run nfs-ganesha (sudo ganesha.nfsd)
+
 ### Explanation
 
 1. Each NFS filetype has a corresponding Amazon S3 object to store its data.
@@ -334,6 +347,13 @@ typedef struct {
                                        (_AmazonS3_)
                                          (_) (__)
 
+Contributors:
+Ujjwal Lanjewar, Ajay Nair, Ashay Shirwadkar
+
 TODO:  
 1) Collision free random object name generator
-2) 
+2) Support for other file types (symbolic links, hard links etc.)
+3) Support for extents (i.e. file data stored across multiple objects)
+4) Remove dependency on local file
+5) Asynchronous operations using worker threads pooling and work queuing  
+6) Punch hole 
