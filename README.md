@@ -347,7 +347,7 @@ typedef struct {
                                        (_AmazonS3_)
                                          (_) (__)
 
-TODO:  
+### TODO:  
 1) Collision free random object name generator
 2) Support for other file types (symbolic links, hard links etc.)
 3) Support for extents (i.e. file data stored across multiple objects)
