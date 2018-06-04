@@ -83,7 +83,15 @@ A very very brief introduction to the source code directory structures:
 | common/Makefile              | Makefile used to recursively compile the source code                   |
  ------------------------------------------------------------------------------------------------------
 
-### s3-connector
+### Components
+The source code consists mainly of 4 components. Each of them have been explained below.
+- s3-connector
+- s3-structures
+- CLI
+- FSAL-S3
+- common
+
+#### s3-connector
 
 1) s3-connector can be used by its caller (FSAL-S3 in our case) to connect to Amazon S3 and manipulate S3 object data.
 
@@ -95,15 +103,17 @@ A very very brief introduction to the source code directory structures:
    - Create a temporary file
    - Write the intended object data to the file
    - Pass the file pointer to s3-connector with read access
-s3-connector will read data from the file and store it in the Amazon S3 object
+     
+`s3-connector will read data from the file and store it in the Amazon S3 object`
 
 3) When the caller wants to Get(read) an object from Amazon S3 it should:
    - Create a temporary file
    - Pass the file pointer to s3-connector with write access
-s3-connector will write data from the object to the file
 
-#### Data structures
-. s3-connector uses the `data_pointer` data structure to store data.
+`s3-connector will write data from the object to the file`
+
+##### Data structures
+s3-connector uses the `data_pointer` data structure to store data.
 ```c
 typedef struct {
   FILE   *fp;
@@ -111,12 +121,13 @@ typedef struct {
   size_t metadata_count;
 } data_pointer;
 ```
-fp - Stores the local-file pointer which stores the data of an object
-metadata - A dictionary (name-value pair) which stores the attributes of an object
-metadata_count - Number of metadata that are stored
-Note that `data_pointer` does not store file_size as file size can be calculated using fp.
+- fp - Stores the local-file pointer which stores the data of an object
+- metadata - A dictionary (name-value pair) which stores the attributes of an object
+- metadata_count - Number of metadata that are stored
 
-#### APIs
+`Note that `data_pointer` does not store file_size as file size can be calculated using fp`
+
+##### APIs
 `int get_object(char *bucketName, char *objectName, data_pointer *data)`
 Gets an object(with its data and metadata) from Amazon S3.
   bucketName [in]:  Name of the bucket in which the object to be retrieved is present
@@ -146,11 +157,11 @@ Put object metadata from Amazon S3.
   objectName [in]:  Name of the object whose metadata is to be put
   data       [in]: data_pointer in which the metadata of the object to be put is stored 
 
-### s3-structures
+#### s3-structures
 
 s3-structures defines the structure of the data to be stored in Amazon S3
 
-#### Data structures
+##### Data structures
 
 Directory entry data structure. 
 Each directory has a list of dirent (in string format) stored in it, one for each file within the directory:
@@ -204,7 +215,7 @@ Other static values
 #define S3MAXOBJSIZE  999999           /* Maximum object size supported. Current a large random value */
 ```
 
-#### APIs
+##### APIs
 Pack file name and object name to create a dirent
 `int pack_dirent(char fileName[], char objectName[], s3_dirent **dirent)`
   fileName   [in]:  Name of the file  
@@ -261,7 +272,7 @@ Increment filesize metadata by the given value
   metadata [in]:  The array of metadata
   inc_val  [in]:  The value by which the filesize is to be increased 
 
-#### Important static(non-API) function
+##### Important static(non-API) function
 Converts dirent structure to the string format
 `static int _dirent_to_str(s3_dirent *dirent, char dirent_str[])`
   dirent     [in]:  dirent structure to be converted
@@ -272,7 +283,7 @@ Converts dirent in string format to s3-dirent structure
   dirent_str [in]:  dirent in string format
   dirent     [out]: dirent structure to be created
 
-### CLI
+#### CLI
 Before a directory is exported by an NFS server it needs to be created. i.e. creation of the directory to be exported is to be handled outside of NFS-Ganesha. The CLIs provide a way to manipulate files and directories with the backend as Amazon S3. 
 
 Current CLIs supported are:
@@ -280,7 +291,7 @@ Current CLIs supported are:
 Format: `mkdir_p <directory path>
 Functionally mkdir_p is similar to mkdir with the '-p' option. It creates directories recursively on Amazon S3.
 
-### Common
+#### Common
 common provides generic structures and functions that are shared by multiple modules.
 
 struct dict is defined in common
@@ -292,7 +303,7 @@ typedef struct {
 } dict;
 ```
 
-## Architecture Diagram
+### Architecture Diagram
 
              -------                     -----
             |FSAL-S3|                   | CLI |
