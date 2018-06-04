@@ -13,8 +13,8 @@
 Directory entry data structure:
 ```c
 typedef struct  {
-  char *filename;
-  char *oid;
+  char *fileName;
+  char *objectName;
 } s3_dirent;
 ```
 
@@ -57,6 +57,8 @@ Data in object with object-id 1111:
   `s3magic@dir21@1113@s3magic@s3magic@file22@1114@s3magic@`
 
 ##### Note that data in object with object-id 1114 will be the same as '/dir11/file22' file content.
+
+The attributes of a file is stored as user-defined metadatas of its corresponding object.
 
 ### Source code directory structure
 
@@ -162,8 +164,8 @@ Directory entry data structure.
 Each directory has a list of dirent (in string format) stored in it, one for each file within the directory:
 ```c
 typedef struct  {
-  char *filename;
-  char *oid;
+  char *fileName;
+  char *objectName;
 } dirent;
 ```
 
@@ -189,7 +191,7 @@ typedef enum {
 } metadata_name;
 ```
 
-FILETYPE metadata name can only have a finite metadata value. filetype defined the list of values it can have. Note that when other filetypes will be supported, the list will increase.
+Data structure for metadata value of 'FILETYPE' metadata
 Filetype data structure:
 ```c
 typedef enum {
@@ -198,8 +200,9 @@ typedef enum {
 } filetype;
 ```
 
-All other metadata does not require a data structure for its metadata value
+No other metadata require a data structure for its metadata value
 
+Other static values
 ```c
 #define OIDLEN        20               /* Maximum length of the object ID */
 #define ROOTOID       "0"              /* OID of object corresponding to '/' */
@@ -210,8 +213,124 @@ All other metadata does not require a data structure for its metadata value
 ```
 
 #### APIs
+Pack file name and object name to create a dirent
+`int pack_dirent(char fileName[], char objectName[], s3_dirent **dirent)`
+  fileName   [in]:  Name of the file  
+  objectName [in]:  Name of the object which stores the data of the file 
+  dirent     [out]: dirent structure to be packed 
 
+Unpack a dirent to get file name and object name
+`int unpack_dirent(s3_dirent *dirent, char fileName[], char objectName[])`
+  dirent     [in]:   dirent to unpack 
+  fileName   [out]:  Name of the file
+  objectName [out]:  Name of the object which stores the data of the file  
 
-TODO:
-1) OID generator
+Converts the dirent to string and appends it to the file
+`int append_dirent_to_file(FILE *fp, struct *dirent)`
+  dirent  [in]:   dirent to unpack 
+  fp      [in]:   File pointer of file on which the dirent is to be appended 
+
+Read next dirent from the file starting from the current fp position
+`int read_next_dirent_from_file(FILE *fp, s3_dirent **dirent)`
+  fp       [in]:  File pointer of file on which the the next dirent is to be read
+  dirent   [out]: dirent strucute in which the next dirent will be filled
+
+Search the file to find the dirent with particular filename
+`int find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)`
+  fp       [in]:  File pointer of file which is to be searched 
+  fileName [in]:  Filename to be searched in the dirent
+  dirent   [out]: dirent structure to be filled
+
+Set dict with default metadata names and values. 
+Note that the values to be filled for Filetype and FileId are provided as parameter. For all other metadata default values are used.
+`int set_default_metadata(char fileType[], char fileId[], dict metadata[])`
+  fileType [in]:   Value of file type to be stored in the metadata array
+  fileId   [in]:   Value of File Id to be stored in the metadata arrat
+  dict     [out]:  An array of metadata on which the default metadata name and value will be stored 
+
+Replace the metadata of name 'mname' with 'mvalue'
+`void replace_metadata_value(dict metadata[], char mname[], char mvalue[])`
+  metadata [in]: The array of metadata
+  mname    [in]: The name of metadata whose value is to be changed
+  mvalue   [in]: The new value of the metadata
+
+Get the metadata value of metadata name 'mname'
+`void get_metadata_value(dict metadata[], char mname[], char mvalue[])`
+  metadata [in]:  The array of metadata
+  mname    [in]:  The name of metadata whose value is to be retrieved
+  mvalue   [out]: The value of the metadata
+
+Get the count of metadata
+`void get_metadata_count(size_t *count)`
+count [out]: The number of metadata supported.
+
+Increment filesize metadata by the given value
+`void inc_filesize_metadata(dict metadata[], size_t inc_val)`
+  metadata [in]:  The array of metadata
+  inc_val  [in]:  The value by which the filesize is to be increased 
+
+#### Important static(non-API) function
+Converts dirent structure to the string format
+`static int _dirent_to_str(s3_dirent *dirent, char dirent_str[])`
+  dirent     [in]:  dirent structure to be converted
+  dirent_str [out]: dirent in string format
+
+Converts dirent in string format to s3-dirent structure
+`static int _str_to_dirent(char dirent_str[], s3_dirent *dirent)`
+  dirent_str [in]:  dirent in string format
+  dirent     [out]: dirent structure to be created
+
+### CLI
+Before a directory is exported by an NFS server it needs to be created. i.e. creation of the directory to be exported is to be handled outside of NFS-Ganesha. The CLIs provide a way to manipulate files and directories with the backend as Amazon S3. 
+
+Current CLIs supported are:
+1) mkdir_p
+Format: `mkdir_p <directory path>
+Functionally mkdir_p is similar to mkdir with the '-p' option. It creates directories recursively on Amazon S3.
+
+### Common
+common provides generic structures and functions that are shared by multiple modules.
+
+struct dict is defined in common
+Data structures
+```c
+typedef struct {
+  char *name;
+  char *value;
+} dict;
+```
+
+## Architecture Diagram
+
+             -------                     -----
+            |FSAL-S3|                   | CLI |
+             -------\                   /-----
+                |     -------      ------   |
+                |            \    /         |
+                |             \  /          |
+                |              \/           | 
+                |              /\           |
+                |   ----------/  \------    |
+                |   |                   |   |
+                |   |                   |   |
+               \|/ \|/                 \|/ \|/
+          -------------               ------------
+         |S3-Structures|             |S3-Connector|
+          -------------               ------------
+                                            |
+                                            |
+                                           \|/
+                                          -----
+                                         |libs3|
+                                          -----
+                                            |  
+                                            |  
+                                           \|/  
+                                          __   _
+                                        _(  )_( )_
+                                       (AmazonS3 _)
+                                         (_) (__)
+
+TODO:  
+1) Collision free random object name generator
 2) 
