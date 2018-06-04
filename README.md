@@ -3,19 +3,19 @@
 ## NFS-Ganesha with FSAL-S3 uses Amazon S3 as a backed for NFS.
 
 ### Quick start
-- Get NFS-Ganesha source code\ 
-git clone --recursive https://github.com/nfs-ganesha/nfs-ganesha
-- Install libs3\
-sudo yum install libs3-devel
-- Get FSAL-S3 source code
-git clone https://github.com/ajaynair/FSAL_S3.git
+- Get NFS-Ganesha source code (git clone --recursive https://github.com/nfs-ganesha/nfs-ganesha)
+- Install libs3 (sudo yum install libs3-devel)
+- Get FSAL-S3 source code (git clone https://github.com/ajaynair/FSAL_S3.git)
 - cd FSAL_S3
 - make
 - sudo make install
 - Modify NFS-Ganesha configuration file to use FSAL-S3
 - Run nfs-ganesha (sudo ganesha.nfsd)
 
-### Explanation
+### Contributors:
+Ujjwal Lanjewar, Ajay Nair, Ashay Shirwadkar
+
+### FSAL-S3 Overview
 
 1. Each NFS filetype has a corresponding Amazon S3 object to store its data.
    - Regular file data is stored as it is to an object correspoding to it.
@@ -141,7 +141,7 @@ typedef struct {
 `Note that `data_pointer` does not store file_size as file size can be calculated using fp`
 
 ##### APIs
-Gets an object(with its data and metadata) from Amazon S3\
+**Gets an object(with its data and metadata) from Amazon S3**
 `int get_object(char *bucketName, char *objectName, data_pointer *data)`\
   bucketName [in]:  Name of the bucket in which the object to be retrieved is present\
   objectName [in]:  Name of the object to be retrieved\
@@ -346,9 +346,6 @@ typedef struct {
                                         _(  )_( )_
                                        (_AmazonS3_)
                                          (_) (__)
-
-Contributors:
-Ujjwal Lanjewar, Ajay Nair, Ashay Shirwadkar
 
 TODO:  
 1) Collision free random object name generator
