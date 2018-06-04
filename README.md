@@ -147,24 +147,24 @@ typedef struct {
   objectName [in]:  Name of the object to be retrieved\
   data       [out]: data_pointer in which the data of the object will be stored
 
-Puts an object(with its data and metadata) on Amazon S3\
+**Puts an object(with its data and metadata) on Amazon S3**\
 `int put_object(char *bucketName, char *objectName, data_pointer *data)`\
   bucketName [in]: Name of the bucket in which the object to be retrieved is present\
   objectName [in]: Name of the object to be retrieved\
   data:      [in]: data_pointer in which the data of the object to be put is stored
 
-Delete an object from Amazon S3\
+**Delete an object from Amazon S3**\
 `int delete_object(char *bucketName, char *objName)`\
   bucketName [in]: Name of the bucket in which the object to be deleted is present\
   objectName [in]: Name of the object to be deleted
 
-Gets object metadata from Amazon S3.\
+**Gets object metadata from Amazon S3.**\
 `int get_object_metadata(char *bucketName, char *objName, data_pointer *data)`\
   bucketName [in]:  Name of the bucket in which the object whose metadata is to be retrieved is present\
   objectName [in]:  Name of the object whose metadata is to be retrieved\
   data       [out]: data_pointer in which the metadata of the object will be stored
 
-Put object metadata from Amazon S3.\
+**Put object metadata from Amazon S3.**\
 `int put_object_metadata(char *bucketName, char *objName, data_pointer *data)`\
   bucketName [in]:  Name of the bucket in which the object whose metadata is to be put is present\
   objectName [in]:  Name of the object whose metadata is to be put\
@@ -229,69 +229,69 @@ Other static values
 ```
 
 ##### APIs
-Pack file name and object name to create a dirent\
+**Pack file name and object name to create a dirent**\
 `int pack_dirent(char fileName[], char objectName[], s3_dirent **dirent)`\
   fileName   [in]:  Name of the file\
   objectName [in]:  Name of the object which stores the data of the file\
   dirent     [out]: dirent structure to be packed
 
-Unpack a dirent to get file name and object name\
+**Unpack a dirent to get file name and object name**\
 `int unpack_dirent(s3_dirent *dirent, char fileName[], char objectName[])`\
   dirent     [in]:   dirent to unpack\
   fileName   [out]:  Name of the file\
   objectName [out]:  Name of the object which stores the data of the file
 
-Converts the dirent to string and appends it to the file\
+**Converts the dirent to string and appends it to the file**\
 `int append_dirent_to_file(FILE *fp, struct *dirent)`\
   dirent  [in]:   dirent to unpack\
   fp      [in]:   File pointer of file on which the dirent is to be appended
 
-Read next dirent from the file starting from the current fp position\
+**Read next dirent from the file starting from the current fp position**\
 `int read_next_dirent_from_file(FILE *fp, s3_dirent **dirent)`\
   fp       [in]:  File pointer of file on which the the next dirent is to be read\
   dirent   [out]: dirent strucute in which the next dirent will be filled
 
-Search the file to find the dirent with particular filename\
+**Search the file to find the dirent with particular filename**\
 `int find_dirent_in_file(FILE *fp, char filename[], s3_dirent **dirent)`\
   fp       [in]:  File pointer of file which is to be searched\
   fileName [in]:  Filename to be searched in the dirent\
   dirent   [out]: dirent structure to be filled
 
-Set dict with default metadata names and values\ 
+**Set dict with default metadata names and values**\ 
 Note that the values to be filled for Filetype and FileId are provided as parameter. For all other metadata default values are used\
 `int set_default_metadata(char fileType[], char fileId[], dict metadata[])`\
   fileType [in]:   Value of file type to be stored in the metadata array\
   fileId   [in]:   Value of File Id to be stored in the metadata array\
   dict     [out]:  An array of metadata on which the default metadata name and value will be stored
 
-Replace the metadata of name 'mname' with 'mvalue'\
+**Replace the metadata of name 'mname' with 'mvalue'**\
 `void replace_metadata_value(dict metadata[], char mname[], char mvalue[])`\
   metadata [in]: The array of metadata\
   mname    [in]: The name of metadata whose value is to be changed\
   mvalue   [in]: The new value of the metadata
 
-Get the metadata value of metadata name 'mname'\
+**Get the metadata value of metadata name 'mname'**\
 `void get_metadata_value(dict metadata[], char mname[], char mvalue[])`\
   metadata [in]:  The array of metadata\
   mname    [in]:  The name of metadata whose value is to be retrieved\
   mvalue   [out]: The value of the metadata
 
-Get the count of metadata\
-`void get_metadata_count(size_t *count)`\
+**Get the count of metadata\
+`void get_metadata_count(size_t *count)`**\
 count [out]: The number of metadata supported.
 
-Increment filesize metadata by the given value\
+**Increment filesize metadata by the given value**\
 `void inc_filesize_metadata(dict metadata[], size_t inc_val)`\
   metadata [in]:  The array of metadata\
   inc_val  [in]:  The value by which the filesize is to be increased
 
 ##### Important static(non-API) function
-Converts dirent structure to the string format\
+**Converts dirent structure to the string format**\
 `static int _dirent_to_str(s3_dirent *dirent, char dirent_str[])`\
   dirent     [in]:  dirent structure to be converted\
   dirent_str [out]: dirent in string format
 
-Converts dirent in string format to s3-dirent structure\
+**Converts _dirent in string format to s3-dirent structure**\
 `static int _str_to_dirent(char dirent_str[], s3_dirent *dirent)`\
   dirent_str [in]:  dirent in string format\
   dirent     [out]: dirent structure to be created
