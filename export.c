@@ -1,4 +1,4 @@
-#include "fsal_s3.h"
+#include "fsal_cloud.h"
 #include "FSAL/fsal_commonlib.h"
 #include "FSAL/fsal_config.h"
 

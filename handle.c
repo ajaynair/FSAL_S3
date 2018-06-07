@@ -1,5 +1,5 @@
 #include <libgen.h>
-#include "fsal_s3.h"
+#include "fsal_cloud.h"
 
 /*
 static char *_s3_mydirname(const char* path)

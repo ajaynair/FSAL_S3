@@ -1,4 +1,4 @@
-#include "fsal_s3.h"
+#include "fsal_cloud.h"
 
 /*
  * Function: s3_open

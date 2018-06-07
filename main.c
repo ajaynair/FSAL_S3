@@ -1,4 +1,4 @@
-#include "fsal_s3.h"
+#include "fsal_cloud.h"
 
 typedef struct s3_fsal_module {
     struct fsal_module fsal;
