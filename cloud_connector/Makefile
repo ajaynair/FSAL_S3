@@ -1,5 +1,5 @@
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I. -I../../../common/ -I../../ #-I$(GANESHASRC)/include -I$(GANESHASRC)libntirpc/ntirpc/
+IINCLUDE  = -I. -I../common/  #-I$(GANESHASRC)/include -I$(GANESHASRC)libntirpc/ntirpc/
 OBJS      = $(subst .c,.o,$(SOURCES))
 CC        = gcc -g3 -Wall -Wno-pointer-sign
 
@@ -10,10 +10,9 @@ all: $(OBJS)
 
 %.o: %.c $(HEADERS) 
 	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) -c $< -o $@
-	$(CC) s3_connector.o -shared -o libs3connector.so
 
 test: $(OBJS)
-	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic -ls3	
+	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic -ldl -ls3	
 	
 clean: 
 	rm -f $(OBJS) basic

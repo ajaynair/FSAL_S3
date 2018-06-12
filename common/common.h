@@ -1,6 +1,9 @@
 #ifndef __COMMON__
 #define __COMMON__
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define BUF_SIZE                 1024
 #define RETRIES                  100
 #define TMPDIR                   "/tmp/"

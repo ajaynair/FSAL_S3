@@ -1,36 +1,18 @@
 #ifndef __S_CONNECTOR__
 #define __S_CONNECTOR__
 
-#include "common.h"
-
-/*
- * This structure is used to store the file data and metadata
- * fp - Stores the local-file pointer which 
- *       stores the information of the NFS file 
- * metadata - A dictionary which stores the attributes of a file
- *             in a name value dictionary
- * metadata_count - Number of metadata that are stored
- * status - A (temporary) variable used to make the async libs3 calls 
- *           sync (Only part of the POC) 
- */
-
-typedef struct {
-  FILE   *fp;
-  dict   *metadata; 
-  size_t metadata_count; 
-  int    status;
-} data_pointer; 
+#include "cloud_connector.h"
 
 /* TODO: All the fuctions should return some status */
-void get_object(char *bucketName, char *objectName, data_pointer *data);
+int s3_get_object(char bucketName[], char objectName[], data_pointer *data);
 
-void put_object(char *bucketName, char *objectName, data_pointer *data); 
+int s3_put_object(char bucketName[], char objectName[], data_pointer *data); 
 
-void delete_object(char *bucketName, char *objName);
+int s3_delete_object(char bucketName[], char objName[]);
 
-void get_object_metadata(char *bucketName, char *objName, data_pointer *data);
+int s3_get_object_metadata(char bucketName[], char objName[], data_pointer *data);
 
-void put_object_metadata(char *bucketName, char *objName, data_pointer *data);
+int s3_put_object_metadata(char bucketName[], char objName[], data_pointer *data);
 
 /**
  * @brief Initialize s3_connector.
@@ -38,13 +20,13 @@ void put_object_metadata(char *bucketName, char *objName, data_pointer *data);
  * The function initializes libs3 and also fetches Amazon S3 keys
  * from environment variables 
  */
-void init_s3_connector();
+int s3_init_connector(cloud_ops **cops);
 
 /**
  * @brief deinitialize s3_connector.
  *
  * The function calls libs3 deinitialize
  */
-void deinit_s3_connector();
+void s3_deinit_connector();
 
 #endif

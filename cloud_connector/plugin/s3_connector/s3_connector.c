@@ -9,6 +9,15 @@
 
 #include "s3_connector.h"
 
+static cloud_ops s3_ops  = {
+  .get_object = s3_get_object,
+  .put_object = s3_put_object,
+  .get_object_metadata = s3_get_object_metadata,
+  .put_object_metadata = s3_put_object_metadata,
+  .delete_object = s3_delete_object,
+  .cloud_deinit = s3_deinit_connector,
+};
+
 /** 
  * state is used to make sure no function except init_s3_connector 
  * is called after deinit_s3_connector 
@@ -168,11 +177,11 @@ void static inline _clean_data_pointer(data_pointer *dp)
 
 
 /* Section 2: API functions */
-void delete_object(char *bucketName, char *objName)
+int s3_delete_object(char *bucketName, char *objName)
 {
   if (current_state != INITIALIZED) {
     //printf("Module not initialized\n");
-    return;
+    return 0;
   }
 
   S3ResponseHandler responseHandler =
@@ -194,14 +203,15 @@ void delete_object(char *bucketName, char *objName)
   };
 
   S3_delete_object(&bucketContext, objName, 0, 0, &responseHandler, 0);
+  return 0;
 }
 
-void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
+int s3_put_object_metadata(char *bucketName, char *objName, data_pointer *data)
 {
   /* TODO: Create inline function for this */
   if (current_state != INITIALIZED) {
     //printf("Module not initialized\n");
-    return;
+    return 0;
   }
 
   /**
@@ -257,13 +267,14 @@ void put_object_metadata(char *bucketName, char *objName, data_pointer *data)
                  &lastModified, sizeof(eTag), eTag, NULL,
                  0,
                  &responseHandler, 0);
+  return 0;
 }
 
-void get_object_metadata(char *bucketName, char *objName, data_pointer *data)
+int s3_get_object_metadata(char *bucketName, char *objName, data_pointer *data)
 {
   if (current_state != INITIALIZED) {
     //printf("Module not initialized\n");
-    return;
+    return 0;
   }
 
   S3ResponseHandler responseHandler =
@@ -285,9 +296,10 @@ void get_object_metadata(char *bucketName, char *objName, data_pointer *data)
   };
 
   S3_head_object(&bucketContext, objName, 0, 0, &responseHandler, data);
+  return 0;
 }
 
-void get_object(char *bucketName, char *objectName, data_pointer *data)
+int s3_get_object(char *bucketName, char *objectName, data_pointer *data)
 {
   S3GetConditions getConditions =
   {
@@ -321,15 +333,16 @@ void get_object(char *bucketName, char *objectName, data_pointer *data)
                 0, NULL, 0, &getObjectHandler, (void *) data);
 
   while (data->status == 0);
+  return 0;
 }
 
-void put_object(char *bucketName, char *objectName, data_pointer *data) 
+int s3_put_object(char *bucketName, char *objectName, data_pointer *data) 
 {
   size_t filesize = 0;  
 
   if (current_state != INITIALIZED) {
     //printf("Module not initialized\n");
-    return;
+    return 0;
   }
 
   /**
@@ -391,6 +404,7 @@ void put_object(char *bucketName, char *objectName, data_pointer *data)
                 NULL, 0, &putObjectHandler, (void *) data);
 
   while (data->status == 0);
+  return 0;
   
 }
 
@@ -400,7 +414,7 @@ void put_object(char *bucketName, char *objectName, data_pointer *data)
  * The function initializes libs3 and also fetches Amazon S3 keys
  * from environment variables 
  */
-void init_s3_connector()
+int s3_init_connector(cloud_ops **cops)
 {
   S3Status st = S3StatusOK;
 
@@ -408,7 +422,7 @@ void init_s3_connector()
   st = S3_initialize("s3", S3_INIT_ALL, NULL);
   if (st != S3StatusOK) {
     //printf("S3)initialize failed!");
-    return;
+    return 0;
   }
 
   /* Read Amazon S3 access key and secret access key from environment variables */
@@ -423,7 +437,10 @@ void init_s3_connector()
     //printf("secret_access_key environment variable not set\n");
     exit(0);
   }
+
+  *cops = &s3_ops;
   current_state = INITIALIZED;
+  return 0;
 }
 
 /**
@@ -431,7 +448,7 @@ void init_s3_connector()
  *
  * The function calls libs3 deinitialize
  */
-void deinit_s3_connector()
+void s3_deinit_connector()
 {
   S3_deinitialize();
   current_state = DEINITIALIZED;

@@ -1,4 +1,4 @@
-SUBDIRS = common s3_connector obj_structs cli
+SUBDIRS = common cloud_connector cloud_structures cli
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
 IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/ -Is3_connector/ -Iobj_structs/ -Icommon/
 TARGET    = libfsals3.so

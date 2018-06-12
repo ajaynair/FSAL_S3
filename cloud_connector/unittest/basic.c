@@ -8,15 +8,13 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "s3_connector.h"
+#include "cloud_connector.h"
 
 #define BUCKETNAME     "fsals3bucket"
 #define TESTSTR        "Some random data"
 #define BUF_SIZE       1024
 #define PATH_LEN       20
-#define FILENAME_LEN   10
-#define TMPDIR         "/tmp/fsals3_test/"
-#define RETRIES        100
+#define FILENAME_LEN 10
 
 static void _get_file_size(char *filepath, size_t *size) {
   FILE *fp = NULL;
@@ -106,7 +104,7 @@ static void get_object_test()
   FILE *get_fp = 0;
   int i = 0;
 
-  init_s3_connector();
+  cloud_init();
   printf("S3 connector Module Initialized\n");
 
   _create_random_string(put_objName, PATH_LEN);
@@ -157,7 +155,7 @@ static void get_object_test()
            get_metadata->metadata[i].value);
   }
 
-  deinit_s3_connector();
+  cloud_deinit();
 }
 
 static void get_object_metadata_test()
