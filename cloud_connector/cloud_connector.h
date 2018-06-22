@@ -22,9 +22,16 @@ typedef struct {
 } data_pointer; 
 
 typedef struct {
+  char **objects;
+  int object_count;
+  int    status;
+} object_list;
+
+typedef struct {
   int (*get_object)(char bucketName[], char objectName[], data_pointer *data);
   int (*put_object)(char bucketName[], char objectName[], data_pointer *data);
   int (*delete_object)(char bucketName[], char objectName[]);
+  int (*list_objects)(char bucketName[], char delimiter[], object_list *objects);
   int (*get_object_metadata)(char bucketName[], char objectName[], data_pointer *data);
   int (*put_object_metadata)(char bucketName[], char objectName[], data_pointer *data);
   void (*cloud_deinit)();
@@ -34,6 +41,7 @@ int cloud_init();
 int get_object(char bucketName[], char objectName[], data_pointer *data);
 int put_object(char bucketName[], char objectName[], data_pointer *data);
 int delete_object(char bucketName[], char objectName[]);
+int list_objects(char bucketName[], char delimiter[], object_list *objects);
 int get_object_metadata(char bucketName[], char objectName[], data_pointer *data);
 int put_object_metadata(char bucketName[], char objectName[], data_pointer *data);
 void cloud_deinit();

@@ -30,8 +30,8 @@ static void _create_random_string(char *string, unsigned length)
   int i = 0;  
 
   srand((unsigned int) time(0) + getpid());
-   
-  for (i = 0; i < length; i++)
+  strcpy(string, "0/"); 
+  for (i = 2; i < (length + 2); i++)
     {
       string[i] = rand() % 20 + 66;
     }
@@ -106,7 +106,6 @@ static void get_object_test()
 
   cloud_init();
   printf("S3 connector Module Initialized\n");
-
   _create_random_string(put_objName, PATH_LEN);
   printf("Creating object %s\n", put_objName);
 
@@ -120,7 +119,10 @@ static void get_object_test()
   put_data->metadata_count = 0;
   put_data->fp = put_fp;
 
+  strcat(put_objName, "/");
   put_object(BUCKETNAME, put_objName, put_data);
+  put_object(BUCKETNAME, "0/NGJIMPECMMSGJMLSHOGS/f1", put_data);
+  put_object(BUCKETNAME, "0/NGJIMPECMMSGJMLSHOGS/d1/", put_data);
 
   _create_rand_file(get_filepath);
 
@@ -153,6 +155,15 @@ static void get_object_test()
   for (i = 0; i < get_metadata->metadata_count; i++) {
     printf("Meta name '%s' Meta value '%s'", get_metadata->metadata[i].name,
            get_metadata->metadata[i].value);
+  }
+
+  object_list *objects = calloc(1, sizeof(object_list));
+  list_objects(BUCKETNAME, "0/NGJIMPECMMSGJMLSHOGS/", objects);
+
+  printf("count: %d\n", objects->object_count);
+  for (i = 0; i < objects->object_count; i++)
+  {
+    printf("dirname: %s\n", objects->objects[i]);
   }
 
   cloud_deinit();

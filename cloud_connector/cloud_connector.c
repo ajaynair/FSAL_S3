@@ -9,7 +9,6 @@ int cloud_init()
   char lib_path[BUF_SIZE] = {0};
   char type[BUF_SIZE] = "s3";    // Should be read from the config file
   char cloud_init_fn[BUF_SIZE] = {0};
-  char cloud_deinit[BUF_SIZE] = {0};
   void *handle = NULL;
   int (*cloud_init)(cloud_ops **);
 
@@ -53,6 +52,11 @@ int put_object(char bucketName[], char objectName[], data_pointer *data)
 int delete_object(char bucketName[], char objectName[])
 {
   return cops->delete_object(bucketName, objectName);
+}
+
+int list_objects(char bucketName[], char delimiter[], object_list *objects)
+{
+  return cops->list_objects(bucketName, delimiter, objects);
 }
 
 int get_object_metadata(char bucketName[], char objectName[], data_pointer *data)

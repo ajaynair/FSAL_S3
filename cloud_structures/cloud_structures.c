@@ -8,54 +8,69 @@
 #include "common.h"
 
 /* TODO: Create macros for default values */
-int set_default_metadata(dict **metadata, char filetype[], char fileid[])
+int set_default_metadata(dict **metadata, filetype_value filetypeval, char fileid[])
 {
     dict *_metadata = NULL;
     struct timespec cur_time;
     char cur_time_str[BUF_SIZE] = { 0 };
+    char tmp_str[BUF_SIZE] = { 0 };
 
     _metadata = calloc(METADATACOUNT, sizeof(dict));
 
-    sprintf(_metadata[FILETYPE].name, "%d", FILETYPE);
-    _metadata[FILETYPE].value = strdup(filetype);
+    sprintf(tmp_str, "%d", FILETYPE);
+    _metadata[FILETYPE].name = strdup(tmp_str);
+    sprintf(tmp_str, "%d", filetypeval);
+    _metadata[FILETYPE].value = strdup(tmp_str);
 
-    sprintf(_metadata[FILESIZE].name, "%d", FILESIZE);
+    sprintf(tmp_str, "%d", FILESIZE);
+    _metadata[FILESIZE].name = strdup(tmp_str);
     _metadata[FILESIZE].value = strdup("0");
 
-    sprintf(_metadata[FSID].name, "%d", FSID);
+    sprintf(tmp_str, "%d", FSID);
+    _metadata[FSID].name = strdup(tmp_str);
     _metadata[FSID].value = strdup("0");
 
-    sprintf(_metadata[FILEID].name, "%d", FILEID);
+    sprintf(tmp_str, "%d", FILEID);
+    _metadata[FILEID].name = strdup(tmp_str);
     _metadata[FILEID].value = strdup(fileid);
 
-    sprintf(_metadata[MODE].name, "%d", MODE);
-    _metadata[MODE].value = strdup("0755");
+    sprintf(tmp_str, "%d", MODE);
+    _metadata[MODE].name = strdup(tmp_str);
+    _metadata[MODE].value = strdup("493");
 
-    sprintf(_metadata[NUMLINKS].name, "%d", NUMLINKS);
+    sprintf(tmp_str, "%d", NUMLINKS);
+    _metadata[NUMLINKS].name = strdup(tmp_str);
     _metadata[NUMLINKS].value = strdup("2");
 
-    sprintf(_metadata[OWNER].name, "%d", OWNER);
+    sprintf(tmp_str, "%d", OWNER);
+    _metadata[OWNER].name = strdup(tmp_str);
     _metadata[OWNER].value = strdup("1000");
 
-    sprintf(_metadata[GROUP].name, "%d", GROUP);
+    sprintf(tmp_str, "%d", GROUP);
+    _metadata[GROUP].name = strdup(tmp_str);
     _metadata[GROUP].value = strdup("1000");
 
     clock_gettime(CLOCK_REALTIME, &(cur_time));
     sprintf(cur_time_str, "%ld.%ld", cur_time.tv_sec, cur_time.tv_nsec);
 
-    sprintf(_metadata[ATIME].name, "%d", ATIME);
+    sprintf(tmp_str, "%d", ATIME);
+    _metadata[ATIME].name = strdup(tmp_str);
     _metadata[ATIME].value = strdup(cur_time_str);
 
-    sprintf(_metadata[CTIME].name, "%d", CTIME);
+    sprintf(tmp_str, "%d", CTIME);
+    _metadata[CTIME].name = strdup(tmp_str);
     _metadata[CTIME].value = strdup(cur_time_str);
 
-    sprintf(_metadata[CHGTIME].name, "%d", CHGTIME);
+    sprintf(tmp_str, "%d", CHGTIME);
+    _metadata[CHGTIME].name = strdup(tmp_str);
     _metadata[CHGTIME].value = strdup(cur_time_str);
 
-    sprintf(_metadata[MTIME].name, "%d", MTIME);
+    sprintf(tmp_str, "%d", MTIME);
+    _metadata[MTIME].name = strdup(tmp_str);
     _metadata[MTIME].value = strdup(cur_time_str);
 
-    sprintf(_metadata[SPACEUSED].name, "%d", SPACEUSED);
+    sprintf(tmp_str, "%d", SPACEUSED);
+    _metadata[SPACEUSED].name = strdup(tmp_str);
     _metadata[SPACEUSED].value = strdup("0");
 
     *metadata = _metadata;

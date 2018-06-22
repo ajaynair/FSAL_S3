@@ -7,8 +7,8 @@
 #include "common.h"
 
 #define OIDLEN        10
-#define ROOTOID       "0"
-#define BUCKETNAME    "fsalcloudbucket"
+#define ROOTOID       "0/"
+#define BUCKETNAME    "fsals3bucket" // TODO Remove s3
 #define MAXOBJSIZE    50000 /* TODO Change this to some actual value */
 
 #define METADATACOUNT 13
@@ -34,11 +34,11 @@ typedef enum {
 typedef enum {
   REGULARFILE_T = 0,
   DIRECTORY_T   = 1,
-} metadata_filetype_values;
+} filetype_value;
 
 /* Set dict with default metadata names and values. Values to be filled for Filetype 
  * and FileId are provided as parameter */
-int set_default_metadata(dict **metadata, char filetype[], char fileid[]);
+int set_default_metadata(dict **metadata, filetype_value filetypeval, char fileid[]);
 
 /* Replace the metadata of name 'mname' with 'mvalue' */
 /* TODO: rename it to put_metadata_value */

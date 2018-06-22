@@ -6,12 +6,15 @@
 #include <time.h>
 #include <libs3.h>
 #include <assert.h>
+#include <limits.h>
+#include <libgen.h>
 
 #include "s3_connector.h"
 
 static cloud_ops s3_ops  = {
   .get_object = s3_get_object,
   .put_object = s3_put_object,
+  .list_objects = s3_list_objects,
   .get_object_metadata = s3_get_object_metadata,
   .put_object_metadata = s3_put_object_metadata,
   .delete_object = s3_delete_object,
@@ -32,6 +35,16 @@ static state current_state = DEINITIALIZED;
 /* Amazon S3 keys */
 static char *access_key = NULL;
 static char *secret_access_key = NULL;
+
+static void _null_complete_function(S3Status status,
+                                    const S3ErrorDetails *error,
+                                    void *callbackData)
+{
+  object_list *objects = callbackData;
+  objects->status = 1;
+  return; 
+}
+
 
 /** 
  * The file is divided into 2 parts:
@@ -82,6 +95,11 @@ static void _responseCompleteCallback(S3Status status,
   }
 }
 
+static S3Status _null_properties_function(const S3ResponseProperties *properties, void *callbackData)
+{
+
+  return S3StatusOK;
+}
 /**
  * @brief Callback function to get object metadata  
  *
@@ -175,6 +193,41 @@ void static inline _clean_data_pointer(data_pointer *dp)
     dp->fp = NULL;
 }
 
+static S3Status listBucketCallback(int isTruncated, const char *nextMarker,
+                                   int contentsCount,
+                                   const S3ListBucketContent *contents,
+                                   int commonPrefixesCount,
+                                   const char **commonPrefixes,
+                                   void *callbackData)
+{
+  object_list *objects = callbackData;
+  int i = 0;
+  int obj_index = 0;
+  S3Status st = S3StatusOK;
+  int start_index = 0;
+ 
+  if (contentsCount + commonPrefixesCount == 0)
+    return objects->object_count = 0;
+
+  if (objects->object_count == 0) {
+    start_index = 1;
+    objects->object_count = contentsCount + commonPrefixesCount - 1;
+    objects->objects = calloc(100, sizeof(char *)); // TODO make 100 dynamic
+  }
+  else {
+    obj_index = objects->object_count;
+    objects->object_count += contentsCount + commonPrefixesCount;
+  }
+
+  for (i = start_index; i < contentsCount; i++) {
+    objects->objects[obj_index++] = strdup(basename(contents[i].key));
+  }
+  for (i = 0; i < commonPrefixesCount; i++) {
+    objects->objects[obj_index++] = strdup(basename(commonPrefixes[i]));
+  }
+
+  return st;
+}
 
 /* Section 2: API functions */
 int s3_delete_object(char *bucketName, char *objName)
@@ -406,6 +459,37 @@ int s3_put_object(char *bucketName, char *objectName, data_pointer *data)
   while (data->status == 0);
   return 0;
   
+}
+
+int s3_list_objects(char bucketName[], char prefix[], object_list *objects) 
+{
+  if (current_state != INITIALIZED) {
+    //printf("Module not initialized\n");
+    return 0;
+  }
+
+    S3ListBucketHandler listBucketHandler =
+    {
+        // { &responsePropertiesCallback, &responseCompleteCallback },
+        { _null_properties_function, _null_complete_function },
+        &listBucketCallback
+    };
+ 
+  S3BucketContext bucketContext =
+  {
+    0,
+    bucketName,
+    S3ProtocolHTTP,
+    S3UriStylePath,
+    access_key,
+    secret_access_key,
+    0,
+    NULL
+  };
+
+  S3_list_bucket(&bucketContext, prefix, NULL, "/", INT_MAX, NULL, 0, &listBucketHandler, objects);
+  while (objects->status == 0);
+  return 0;
 }
 
 /**

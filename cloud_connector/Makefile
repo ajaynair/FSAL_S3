@@ -12,7 +12,7 @@ all: $(OBJS)
 	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) -c $< -o $@
 
 test: $(OBJS)
-	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic -ldl -ls3	
+	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic -ldl	
 	
 clean: 
 	rm -f $(OBJS) basic

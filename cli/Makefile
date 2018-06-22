@@ -1,5 +1,5 @@
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I../ -I../s3_connector/ -I../obj_structs/ -I../common/ 
+IINCLUDE  = -I../ -I../cloud_connector/ -I../cloud_structures/ -I../common/ 
 OBJS      = $(subst .c,,$(SOURCES))
 CC        = gcc -g3 -Wall -Wno-pointer-sign
 
@@ -9,7 +9,7 @@ endif
 all: $(OBJS)
 
 %: %.c $(HEADERS) 
-	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) ../s3_connector/s3_connector.o ../obj_structs/obj_structs.o ../common/common.o -ls3 $< -o $@
+	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) ../cloud_connector/cloud_connector.o ../cloud_structures/cloud_structures.o ../common/common.o $< -o $@ -ldl
 
 clean: 
 	rm -f $(OBJS)

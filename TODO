@@ -1,0 +1,8 @@
+Immediate TODOs
+
+Check if s3 folder can store metadata
+Change fsal_s3 to fsal_cloud
+fsal_s3 calls cloud_connector
+cloud_connector fills s3_connector plugin functions
+s3_structures to cloud_structures
+FID connector
