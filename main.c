@@ -1,14 +1,14 @@
 #include "fsal_cloud.h"
 
-typedef struct s3_fsal_module {
+typedef struct cloud_fsal_module {
     struct fsal_module fsal;
     struct fsal_staticfsinfo_t fs_info;
-} s3_fsal_module_t;
+} cloud_fsal_module_t;
 
-static struct s3_fsal_module S3;
-static const char myname[] = "S3";
+static struct cloud_fsal_module CLOUD;
+static const char myname[] = "CLOUD";
 
-#define S3_SUPPORTED_ATTRIBUTES   (                 \
+#define CLOUD_SUPPORTED_ATTRIBUTES   (                 \
     ATTR_TYPE     | ATTR_SIZE     |                 \
     ATTR_FSID     | ATTR_FILEID   |                 \
     ATTR_MODE     | ATTR_OWNER    |                 \
@@ -16,9 +16,9 @@ static const char myname[] = "S3";
     ATTR_CTIME    | ATTR_MTIME                     \
     )
 
-/* TODO Check if the following values are correct for S3 */
-static struct fsal_staticfsinfo_t s3_info = {
-    .maxfilesize = S3MAXOBJSIZE,
+/* TODO Check if the following values are correct for CLOUD */
+static struct fsal_staticfsinfo_t cloud_info = {
+    .maxfilesize = MAXOBJSIZE,
     .maxlink = 0,
     .maxnamelen = 1024,
     .maxpathlen = 1024,
@@ -37,7 +37,7 @@ static struct fsal_staticfsinfo_t s3_info = {
     .acl_support = FSAL_ACLSUPPORT_DENY,
     .cansettime = true,
     .homogenous = true,
-    .supported_attrs = S3_SUPPORTED_ATTRIBUTES,
+    .supported_attrs = CLOUD_SUPPORTED_ATTRIBUTES,
     .maxread = FSAL_MAXIOSIZE,
     .maxwrite = FSAL_MAXIOSIZE,
     .umask = 0,
@@ -45,13 +45,13 @@ static struct fsal_staticfsinfo_t s3_info = {
     .xattr_access_rights = 0400,
 };
 
-struct fsal_staticfsinfo_t *s3_staticinfo(struct fsal_module *hdl)
+struct fsal_staticfsinfo_t *cloud_staticinfo(struct fsal_module *hdl)
 {
     LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    return &s3_info;
+    return &cloud_info;
 }
 
-static fsal_status_t s3_init_config(struct fsal_module *fsal_hdl,
+static fsal_status_t cloud_init_config(struct fsal_module *fsal_hdl,
                                     config_file_t config_struct)
 {
     /* TODO Read all the following data from config file ganesha.conf */
@@ -62,43 +62,43 @@ static fsal_status_t s3_init_config(struct fsal_module *fsal_hdl,
 
 /*
  * Function: fsal_init
- * Definition: Constructor of the FSAL_S3 module
- * Registers itself(FSAL_S3) and fills it's ops
+ * Definition: Constructor of the FSAL_CLOUD module
+ * Registers itself(FSAL_CLOUD) and fills it's ops
  * Return Value: void
  */
-/* TODO change void fsal_init() to MODULE_INIT s3_init() */
+/* TODO change void fsal_init() to MODULE_INIT cloud_init() */
 void fsal_init(void)
 {
         int retval;
-        struct fsal_module *myself = &S3.fsal;
+        struct fsal_module *myself = &CLOUD.fsal;
 
-        init_s3_connector();
+        cloud_init();
         retval = register_fsal(myself, myname, FSAL_MAJOR_VERSION,
             FSAL_MINOR_VERSION, FSAL_ID_EXPERIMENTAL);
         if (retval != 0) {
-                fprintf(stderr, "S3 module failed to register");
+                fprintf(stderr, "CLOUD module failed to register");
                 return;
         }
 
-    myself->ops->create_export = s3_create_export;
-    myself->ops->init_config = s3_init_config;
+    myself->ops->create_export = cloud_create_export;
+    myself->ops->init_config = cloud_init_config;
 }
 
 /*
  * Function: fsal_unload
- * Definition: Destructor of the FSAL_S3 module
- * Unregisters itself(FSAL_S3)
+ * Definition: Destructor of the FSAL_CLOUD module
+ * Unregisters itself(FSAL_CLOUD)
  * Return Value: void
  */
-/* TODO change void fsal_unload() to MODULE_FINI s3_unload() */
+/* TODO change void fsal_unload() to MODULE_FINI cloud_unload() */
 void fsal_unload(void)
 {
         int retval;
 
-        retval = unregister_fsal(&S3.fsal);
+        retval = unregister_fsal(&CLOUD.fsal);
         if (retval != 0) {
-                fprintf(stderr, "S3 module failed to unregister");
+                fprintf(stderr, "CLOUD module failed to unregister");
                 return;
         }
-        deinit_s3_connector();
+        cloud_deinit();
 }

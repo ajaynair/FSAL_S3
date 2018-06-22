@@ -1,7 +1,7 @@
-SUBDIRS = common cloud_connector cloud_structures cli
+SUBDIRS = common cloud_connector cloud_structures #cli
 SOURCES = $(shell find . -maxdepth 1 -name '*.c')
-IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/ -Is3_connector/ -Iobj_structs/ -Icommon/
-TARGET    = libfsals3.so
+IINCLUDE  = -I. -I$(GANESHASRC)/include -I$(GANESHASRC)/libntirpc/ntirpc/ -Icloud_connector/ -Icloud_structures/ -Icommon/
+TARGET    = libfsalcloud.so
 DEST      = dest/
 OBJS      = $(subst .c,.o,$(SOURCES))
 CC        = gcc -g3 -Wall -Wno-pointer-sign
@@ -20,7 +20,7 @@ ifndef GANESHASRC
 endif
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) common/common.o obj_structs/obj_structs.o s3_connector/s3_connector.o -shared -o $(TARGET) -ls3
+	$(CC) $(OBJS) common/common.o cloud_structures/cloud_structures.o cloud_connector/cloud_connector.o -shared -o $(TARGET)
 	cp $(TARGET) $(DEST)
 
 %.o: %.c $(HEADERS)

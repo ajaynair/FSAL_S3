@@ -10,6 +10,8 @@ int s3_put_object(char bucketName[], char objectName[], data_pointer *data);
 
 int s3_delete_object(char bucketName[], char objName[]);
 
+int s3_list_objects(char bucketName[], char delimiter[], object_list *objects);
+
 int s3_get_object_metadata(char bucketName[], char objName[], data_pointer *data);
 
 int s3_put_object_metadata(char bucketName[], char objName[], data_pointer *data);

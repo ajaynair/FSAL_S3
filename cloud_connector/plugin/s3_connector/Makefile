@@ -10,10 +10,10 @@ all: $(OBJS)
 
 %.o: %.c $(HEADERS) 
 	$(CC) $(IINCLUDE) -fPIC $(CCFLAGS) -c $< -o $@
-	$(CC) s3_connector.o -shared -o libs3connector.so
+	$(CC) s3_connector.o -shared -o libs3connector.so -ls3
 
 test: $(OBJS)
-	$(CC) $(IINCLUDE) $(CCFLAGS) $(OBJS) unittest/basic.c -o basic -ls3	
+	$(CC) $(IINCLUDE) $(CCFLAGS) libs3connector.so unittest/basic.c -o basic
 	
 clean: 
 	rm -f $(OBJS) basic

@@ -10,7 +10,7 @@ static struct config_item export_params[] = {
 
 /* TODO What is this structure? */
 static struct config_block export_param = {
-        .dbus_interface_name = "org.ganesha.nfsd.config.fsal.s3-export%d",
+        .dbus_interface_name = "org.ganesha.nfsd.config.fsal.cloud-export%d",
         .blk_desc.name = "FSAL",
         .blk_desc.type = CONFIG_BLOCK,
         .blk_desc.u.blk.init = noop_conf_init,
@@ -23,31 +23,31 @@ static struct config_block export_param = {
  * handle_digest : fsal handle -> wire handle
  * handle_to_key : fsal handle -> key handle
  */
-static fsal_status_t s3_extract_handle(struct fsal_export *exp_hdl,
+static fsal_status_t cloud_extract_handle(struct fsal_export *exp_hdl,
                         fsal_digesttype_t in_type, struct gsh_buffdesc *fh_desc)
 {
     LogCrit(COMPONENT_FSAL, ":Entry Exit Not implemented");
     return fsalstat(ERR_FSAL_NO_ERROR, 0);
 }
 
-static bool s3_fs_supports(struct fsal_export *exp_hdl, fsal_fsinfo_options_t option)
+static bool cloud_fs_supports(struct fsal_export *exp_hdl, fsal_fsinfo_options_t option)
 {
     struct fsal_staticfsinfo_t *info = NULL;
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
 
     LogFullDebug(COMPONENT_FSAL, ":Entry Exit");
-    info = s3_staticinfo(exp_hdl->fsal);
+    info = cloud_staticinfo(exp_hdl->fsal);
     return fsal_supports(info, option);
 
 }
 
-void s3_export_ops_init(struct export_ops *ops) 
+void cloud_export_ops_init(struct export_ops *ops) 
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-    ops->lookup_path = s3_lookup_path;
-    ops->extract_handle = s3_extract_handle;
-    ops->create_handle = s3_create_handle;
-    ops->fs_supports = s3_fs_supports;
+    ops->lookup_path = cloud_lookup_path;
+    ops->extract_handle = cloud_extract_handle;
+    ops->create_handle = cloud_create_handle;
+    ops->fs_supports = cloud_fs_supports;
 }
 
 /* create_export
@@ -56,17 +56,17 @@ void s3_export_ops_init(struct export_ops *ops)
  * First lookup the fsal, then create the export and then put the fsal back.
  * returns the export with one reference taken.
  */
-fsal_status_t s3_create_export(struct fsal_module *fsal_hdl,
+fsal_status_t cloud_create_export(struct fsal_module *fsal_hdl,
                                void *parse_node,
                                const struct fsal_up_vector *up_ops)
 {
    LogCrit(COMPONENT_FSAL, "%s", __FUNCTION__);
-        struct s3_fsal_export *myself;
+        struct cloud_fsal_export *myself;
         struct config_error_type err_type;
         int retval = 0;
         fsal_errors_t fsal_error = ERR_FSAL_NO_ERROR;
 
-        myself = gsh_calloc(1, sizeof(struct s3_fsal_export));
+        myself = gsh_calloc(1, sizeof(struct cloud_fsal_export));
         if (myself == NULL) {
                 LogMajor(COMPONENT_FSAL,
                          "out of memory for object");
@@ -81,8 +81,8 @@ fsal_status_t s3_create_export(struct fsal_module *fsal_hdl,
                 return fsalstat(posix2fsal_error(retval), retval);
         }
 
-        s3_export_ops_init(myself->export.ops);
-        s3_handle_ops_init(myself->export.obj_ops);
+        cloud_export_ops_init(myself->export.ops);
+        cloud_handle_ops_init(myself->export.obj_ops);
         myself->export.up_ops = up_ops;
 
         retval = load_config_from_node(parse_node,
